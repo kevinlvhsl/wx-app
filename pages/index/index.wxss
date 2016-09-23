@@ -1,0 +1,42 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 20px;
+}
+swiper {
+  width: 375px;
+
+}
+.slide-image {
+    display: block;
+    height: 150px;
+    width: 375px;
+}
+.menueview {
+  display: flex;
+  background-color: #FFF;
+  padding: 5px 0;
+  width: 375px;
+  height: 50px;
+}
+
+.menue-image {
+  width: 30%;
+  height: 50px;
+}
