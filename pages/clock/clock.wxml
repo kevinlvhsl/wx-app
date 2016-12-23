@@ -1,0 +1,4 @@
+<view class="container page-bg">
+    <canvas canvas-id="clockCanvas" style="width: 310px; height: 310px;"></canvas>
+    <text>{{currentTime}}</text>
+</view>

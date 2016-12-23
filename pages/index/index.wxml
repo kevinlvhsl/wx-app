@@ -1,28 +1,24 @@
 <!--index.wxml-->
-<view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
+<view class=" page-bg">
+  <template name="true" >
+    小程序被访问了{{count}}次
+  </template>
+
+  <view class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <text class="userinfo-nickname" style="color:{{color}}; font-size: 40rpx; text-align: center;width: 200rpx;border: 1px solid green">{{userInfo.nickName}}</text>
+    <template is="true" data="{{count}}"/>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-  <swiper indicator-dots="{{indicatorDots}}"
+  <swiper class="swipers" indicator-dots="{{indicatorDots}}"
       autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for-items="{{imgUrls}}">
+    <view wx:for="{{imgUrls}}" wx:key="item">
       <swiper-item>
         <image src="{{item}}" class="slide-image" />
       </swiper-item>
-    </block>
+    </view>
   </swiper>
 
-  <view>
-    <view class='menueview' >
-      <block wx:for-items="{{banner_list[1].banner}}">
-        <image src="{{item.pic_url}}" class="menue-image" />
-      </block>
-    </view>
-  </view>
+  <audio poster="{{audio.poster}}" name="{{audio.name}}" author="{{audio.author}}" binderror="audioError" src="{{audio.audioUrl}}" id="myAudio" controls loop></audio>
 
-  
+
 </view>

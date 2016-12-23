@@ -1,111 +1,164 @@
 //index.js
 //获取应用实例
 var app = getApp()
+import test from './test.js'
 Page({
   data: {
-    motto: '第一个小程序！',
-    userInfo: {
-      nickname: 'kevin',
-      avatarUrl: 'https://avatars3.githubusercontent.com/u/10493838?v=3&s=40'
+    userInfo: {},
+    count: 0,
+    array: ['美国', '中国', '巴西', '日本'],
+    index: 0,
+    isShow: false,
+    color: 'red',
+    audio: {
+      poster: 'http://y.gtimg.cn/music/photo_new/T002R300x300M000003rsKF44GyaSk.jpg?max_age=2592000',
+      name: '此时此刻',
+      author: '许巍',
+      audioUrl: 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E06DCBDC9AB7C49FD713D632D313AC4858BACB8DDD29067D3C601481D36E62053BF8DFEAF74C0A5CCFADD6471160CAF3E6A&fromtag=46'
     },
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
-    iconSize: [20, 30, 40, 50, 60, 70],
-    iconColor: [
-      'red', 'orange', 'yellow', 'green', 'rgb(0,255,255)', 'blue', 'purple'
-    ],
-    iconType: [
-      'success', 'info', 'warn', 'waiting', 'safe_success', 'safe_warn',
-      'success_circle', 'success_no_circle', 'waiting_circle', 'circle', 'download',
-      'info_circle', 'cancel', 'search', 'clear'
-    ],
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
     indicatorDots: true,
     autoplay: true,
     interval: 3000,
     duration: 100,
-     "banner_list": [
-      {
-        "banner": [
-          {
-            "pic_url": "http://static.home.mi.com/app/shop/img?id=shop_904608692a4d8415d0de39a0a5897e80.jpeg&w=1080&h=600&crop=a_0_120_1080_480&t=webp&z=1.15&q=78",
-          },
-          {
-            "pic_url": "http://static.home.mi.com/app/shop/img?id=shop_0f5e43035a8b8d27a4b6f315d222fd9b.jpeg&w=1080&h=600&crop=a_0_120_1080_480&t=webp&z=1.15&q=78",
-          },
-          {
-            "pic_url": "http://static.home.mi.com/app/shop/img?id=shop_4ba3d814639ab27570f174467133619f.png&w=1080&h=600&crop=a_0_120_1080_480&t=webp&z=1.15&q=78",
-          },
-          {
-            "pic_url": "http://static.home.mi.com/app/shop/img?id=shop_91f29509f14ea243958285aaf5d5b640.jpeg&w=1080&h=600&crop=a_0_120_1080_480&t=webp&z=1.15&q=78",
-          },
-          {
-            "pic_url": "http://static.home.mi.com/app/shop/img?id=shop_5c752db8097555831469356f5f389078.jpeg&w=1080&h=600&crop=a_0_120_1080_480&t=webp&z=1.15&q=78",
-          }
-        ]
-      },
-      {
-        "banner": [
-          {
-            "pic_url": "http://static.home.mi.com/app/shop/img?id=shop_3237b46c5de819816125d88e9d06b7bf.jpg&crop=a_0_120_1080_480&t=webp&z=1.15&q=78",
-          },
-          {
-            "pic_url": "http://static.home.mi.com/app/shop/img?id=shop_c02bce3048058edb194dc3efb230d06b.jpg&crop=a_0_120_1080_480&t=webp&z=1.15&q=78",
-          },
-          {
-            "pic_url": "http://static.home.mi.com/app/shop/img?id=shop_45b3c9ed56aef44994176b50ae5d8a69.jpg&crop=a_0_120_1080_480&t=webp&z=1.15&q=78",
-          },
-          {
-            "pic_url": "http://static.home.mi.com/app/shop/img?id=shop_95583f54ee857e8fa5f4cf1b9f791a74.jpg&crop=a_0_120_1080_480&t=webp&z=1.15&q=78",
+    imgUrls: [
+      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+    ],
+    tempFilePaths: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+  },
+  onShareAppMessage: function () {
+    return {
+      title: 'kevin',
+      desc: '这里是Kevin的分享描述',
+      path: '/clock/clock'
+    }
+  },
+  onReady () {
+    // 使用 wx.createContext 获取绘图上下文 context
+    // var context = wx.createContext()
 
-          }
-        ]
-      }
-    ]
+    // context.setStrokeStyle("#00ff00")
+    // context.setLineWidth(5)
+    // context.rect(0, 0, 200, 200)
+    // context.stroke()
+    // context.setStrokeStyle("#ff0000")
+    // context.setLineWidth(2)
+    // context.moveTo(160, 100)
+    // context.arc(100, 100, 60, 0, 2 * Math.PI, true)
+    // context.moveTo(140, 100)
+    // context.arc(100, 100, 40, 0, Math.PI, false)
+    // context.moveTo(85, 80)
+    // context.arc(80, 80, 5, 0, 2 * Math.PI, true)
+    // context.moveTo(125, 80)
+    // context.arc(120, 80, 5, 0, 2 * Math.PI, true)
+    // context.stroke()
+
+    // // 调用 wx.drawCanvas，通过 canvasId 指定在哪张画布上绘制，通过 actions 指定绘制行为
+    // wx.drawCanvas({
+    //   canvasId: 'firstCanvas',
+    //   actions: context.getActions() // 获取绘图动作数组
+    // })
   },
+
+  audioError (err) {
+    // console.error(err.detail)
+    wx.showToast({
+      title: err.detail.errMsg,
+      icon: 'waiting_circle',
+      duration: 2000
+    })
+  },
+
   //事件处理函数
-  bindViewTap: function() {
+  bindTextViewTap: function() {
     wx.navigateTo({
-      url: '../logs/logs'
+      url: '../test/test'
     })
   },
-  changeIndicatorDots: function(e) {
-    this.setData({
-      indicatorDots: !this.data.indicatorDots
-    })
+  onShow () {
+    this.setData({isShow: true})
+    console.log('index: show')
   },
-  changeAutoplay: function(e) {
-    this.setData({
-      autoplay: !this.data.autoplay
+  onLoad () {
+    console.log('index: onLoad', app.globalData.name)
+    console.log(this.navigationBarTitleText)
+    wx.showToast({
+      title: '首页加载成功',
+      icon: 'success_no_circle',
+      duration: 2000
     })
-  },
-  intervalChange: function(e) {
-    this.setData({
-      interval: e.detail.value
-    })
-  },
-  durationChange: function(e) {
-    this.setData({
-      duration: e.detail.value
-    })
-  },
-  onLoad: function () {
-    console.log('onLoad')
-    var that = this
-  	//调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
+    //调用应用实例的方法获取全局数据
+    app.getUserInfo(userInfo => {
       //更新数据
-      that.setData({
+      this.setData({
         userInfo:userInfo
       })
-      that.update()
     })
+    // 设备网络状况
+    // wx.getNetworkType({
+    //   success: function(res) {
+    //     var networkType = res.networkType // 返回网络类型2g，3g，4g，wifi
+    //     console.log('设备网络状态信息', networkType)
+    //   }
+    // })
+
+    // 获取系统信息
+    wx.getSystemInfo({
+      success: function(res) {
+        console.log(res.model)
+        console.log(res.pixelRatio)
+        console.log(res.windowWidth)
+        console.log(res.windowHeight)
+        console.log(res.language)
+        console.log(res.version)
+      }
+    })
+
+    // 获取设备位置信息
+    wx.getLocation({
+      type: 'wgs84',
+      success: function(res) {
+        console.log('设备位置信息：', res)
+        var latitude = res.latitude
+        var longitude = res.longitude
+        var speed = res.speed
+        var accuracy = res.accuracy
+      }
+    })
+    const self = this
+    wx.request({
+      url: 'https://app.intv.com.cn/yao/feature-api-util/index/incr?key=wxapp&INTV_DEBUG=1', //仅为示例，并非真实的接口地址
+      data: {
+        x: '' ,
+        y: ''
+      },
+      header: {
+          'Content-Type': 'application/json'
+      },
+      success: (res) => {
+        console.log('获取回来的数据：', res.data)
+        this.setData({
+          count: res.data.data.wxapp
+        })
+      }
+    })
+
+    // wx.request({
+    //   url: app.globalData.DOUBAN_HOST + '/v2/movie/in_theaters',
+    //   data: {
+    //     start: 0,
+    //     count: 9
+    //   },
+    //   header: {
+    //       'Content-Type': 'application/json'
+    //   },
+    //   success: (res) => {
+    //     console.log('获取回来的数据：', res.data)
+    //     this.setData({
+    //       subjects: res.data.subjects
+    //     })
+    //   }
+    // })
   }
 })

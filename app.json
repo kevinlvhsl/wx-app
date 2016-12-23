@@ -1,12 +1,45 @@
 {
   "pages":[
+    "pages/movie/movie",
+    "pages/movie/subject",
+    "pages/movie/search",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/clock/clock",
+    "pages/logs/logs",
+    "pages/test/test"
   ],
+  "debug": false,
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#00be8f",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle":"#ffffff"
+  },
+  "tabBar": {
+    "list": [{
+      "iconPath": "media/navbar_un_2.png",
+      "selectedIconPath": "media/navbar_2.png",
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "selectedColor": "#FF5943"
+    }, {
+      "iconPath": "media/navbar_un_1.png",
+      "selectedIconPath": "media/navbar_1.png",
+      "pagePath": "pages/logs/logs",
+      "text": "日志",
+      "selectedColor": "#FF5943"
+    }, {
+      "iconPath": "media/navbar_un_4.png",
+      "selectedIconPath": "media/navbar_4.png",
+      "pagePath": "pages/clock/clock",
+      "text": "时间",
+      "selectedColor": "#FF5943"
+    }, {
+      "iconPath": "media/navbar_un_3.png",
+      "selectedIconPath": "media/navbar_3.png",
+      "pagePath": "pages/movie/movie",
+      "text": "电影",
+      "selectedColor": "#FF5943"
+    }]
   }
 }

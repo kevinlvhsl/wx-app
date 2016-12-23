@@ -1,4 +1,6 @@
 /**index.wxss**/
+@import '../page.wxss';
+
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -15,28 +17,18 @@
 .userinfo-nickname {
   color: #aaa;
 }
-
+.preimg {
+  height: 200rpx;
+  width: 400rpx;
+}
 .usermotto {
-  margin-top: 20px;
+  margin-top: 200rpx;
 }
+
 swiper {
-  width: 375px;
-
-}
-.slide-image {
-    display: block;
-    height: 150px;
-    width: 375px;
-}
-.menueview {
-  display: flex;
-  background-color: #FFF;
-  padding: 5px 0;
-  width: 375px;
-  height: 50px;
+  width:100%
 }
 
-.menue-image {
-  width: 30%;
-  height: 50px;
+swiper .slide-image {
+  width: 100%
 }

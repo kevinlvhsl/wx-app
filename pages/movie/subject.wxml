@@ -1,0 +1,17 @@
+<view class="page-bg">
+  <view class="info-box">
+    <view class="subject-info" >
+        <text class="subject-title" >{{movie.title}}</text>
+        <image class="subject-poster" src="{{movie.images.large}}" background-size="cover"></image>
+        <text class="subject-meta" >{{meta}}</text>
+        <view class="subject-mark">
+            <text class="mark-item">想看({{movie.wish_count}})</text>
+            <text class="mark-item">看过</text>
+        </view>
+        <view class="subject-summary">
+            <view class="summary-lable">{{movie.title}}的剧情介绍</view>
+            <text class="summary">{{movie.summary}}</text>
+        </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,41 @@
+.section-search {
+  height: 100rpx;
+  display: relative;
+}
+.section-search .mv-search {
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 6rpx 0 6rpx 20rpx;
+  width: 85%;
+}
+.section-search icon {
+  position: absolute;
+  top: 27rpx;
+  right: 25rpx;
+  z-index: 1
+}
+.ms-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+.mov {
+  width: 32%;
+  text-align: center;
+  height: 300rpx;
+  padding: 8rpx 0;
+}
+.mov image {
+  display: inline-block;
+  height: 250rpx;
+  width: 170rpx;
+}
+.mov text {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 13px;
+  width: 200rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

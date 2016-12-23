@@ -1,0 +1,38 @@
+<!--test.wxml-->
+<view class="container">
+  
+  <!-- 视频播放 -->
+  <view class="section tc">
+    <video src="{{src}}"   controls ></video>
+    <view class="btn-area">
+      播放本地视频
+      <button bindtap="bindButtonTap">获取 视频</button>
+    </view>
+  </view>
+
+  <!-- 弹幕视频播放 -->
+  <view class="section tc danmu">
+    <video id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+    <view class="btn-area">
+      <button bindtap="bindButtonTap">获取视频</button>
+      <input placeholder="输入你的观点" class="msg-input" bindblur="bindInputBlur"/>
+      <button bindtap="bindSendDanmu">发送弹幕</button>
+    </view>
+  </view>
+
+  <view class="img-nav" bindtap="tapBack">
+    <view class='menueview'>
+      <view wx:for="{{banner_list[1].banner}}" wx:key="item.pic_url">
+        <image src="{{item.pic_url}}" class="menue-image" />
+      </view>
+    </view>
+  </view>
+
+    <button type="default"  bindtap="bindViewTap"> 添加图片 </button>
+  <view class="preimg">
+    <image mode="aspectFit" style="height:100px;width:200px;" src="{{tempFilePaths}}" ></image>
+  </view>
+
+  
+  <button type="primary" bindtap="showActionSheet"> 查看时钟 </button>
+</view>

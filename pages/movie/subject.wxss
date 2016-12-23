@@ -1,0 +1,48 @@
+.subject-info {
+  padding: 20rpx;
+  background-color:#fff;
+}
+.subject-info image {
+  height: 960rpx;
+  min-height: 900rpx;
+  width: 96%;
+  display: block;
+  margin: 20rpx auto;
+}
+.subject-info .subject-title {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  text-indent: 20rpx;
+}
+.subject-info .subject-meta {
+  font-size: 13px;
+}
+.subject-summary {
+  margin-top: 20rpx;
+}
+.subject-summary .summary-lable {
+  color: #494949;
+  font-size: 16px;
+  font-weight: 600;
+}
+.subject-summary .summary {
+  font-size: 13px;
+  color: #494949;
+  line-height: 1.3;
+}
+.subject-mark {
+  margin: 20rpx 0;
+}
+
+.subject-mark .mark-item {
+  display: inline-block;
+  width: 40%;
+  height: 34px;
+  margin: 0 5%;
+  line-height: 30px;
+  text-align:center;
+  border: 2rpx solid #ffb712;
+  color: #ffb712;
+  border-radius: 5px;
+}
