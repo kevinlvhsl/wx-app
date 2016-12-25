@@ -11,21 +11,31 @@ Page({
     keyword: ''
   },
   onLoad (option) {
+    wx.setNavigationBarTitle({
+      title: '电影搜索',
+      success: function(res) {
+        // success
+      }
+    })
     console.log(option.key)
     this.setData({
       keyword: option.key
     })
+    wx.showNavigationBarLoading()
     api.searchMovie(option.key, (data) => {
       console.log(data)
       this.setData({
         searchs: data,
         searching: false
       })
+      wx.hideNavigationBarLoading()
     }, (res) => {
+      wx.hideNavigationBarLoading()
       console.error('err:', res)
     })
   },
   bindKeyInput: function(e) {
+      console.log('输入了', e.detail.value)
     this.setData({
       keyword: e.detail.value,
       searching: true
@@ -38,13 +48,18 @@ Page({
     })
   },
   searchMovie () {
-    api.searchMovie(this.keyword, (data) => {
+    console.log('search')
+    wx.showNavigationBarLoading()
+    api.searchMovie(this.data.keyword, (data) => {
       console.log(data)
       this.setData({
-        searchs: data
+        searchs: data,
+        searching: false
       })
+      wx.hideNavigationBarLoading()
     }, (res) => {
       console.error('err:', res)
+      wx.hideNavigationBarLoading()
     })
   },
   onReady () {

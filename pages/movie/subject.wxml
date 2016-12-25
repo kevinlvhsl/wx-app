@@ -4,6 +4,7 @@
         <text class="subject-title" >{{movie.title}}</text>
         <image class="subject-poster" src="{{movie.images.large}}" background-size="cover"></image>
         <text class="subject-meta" >{{meta}}</text>
+        <text wx:for="{{movie.casts}}" wx:for-item="star" wx:key="{{star.id}}" bindtap="showStarDetail" data-id="{{star.id}}" class="subject-star" >{{star.name}}</text>
         <view class="subject-mark">
             <text class="mark-item">想看({{movie.wish_count}})</text>
             <text class="mark-item">看过</text>

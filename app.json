@@ -3,6 +3,7 @@
     "pages/movie/movie",
     "pages/movie/subject",
     "pages/movie/search",
+    "pages/movie/celebrity",
     "pages/index/index",
     "pages/clock/clock",
     "pages/logs/logs",

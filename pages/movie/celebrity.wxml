@@ -1,0 +1,17 @@
+<view class="page-bg">
+  <view class="info-box">
+    <image src="{{star.avatars.large}}"></image>
+    <view>
+      <view>中文名：{{star.name}}</view>
+      <view>英文名：{{star.name_en}}</view>
+      <view>性别：{{star.gender}}</view>
+      <view>出生地：{{star.born_place}}</view>
+      <view>其它：{{star.aka}}</view>
+      <view>工作：</view>
+      <view wx:for="{{star.works}}" wx:for-item="work">
+        <text>{{work.roles[0]}} </text>
+        <text> {{work.subject.title}}</text>
+      </view>
+    </view>
+  </view>
+</view>

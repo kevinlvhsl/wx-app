@@ -10,6 +10,7 @@ Page({
     index: 0,
     isShow: false,
     color: 'red',
+    scanpath: '',
     audio: {
       poster: 'http://y.gtimg.cn/music/photo_new/T002R300x300M000003rsKF44GyaSk.jpg?max_age=2592000',
       name: '此时此刻',
@@ -74,6 +75,16 @@ Page({
   bindTextViewTap: function() {
     wx.navigateTo({
       url: '../test/test'
+    })
+  },
+  scan () {
+    wx.scanCode({
+      success: (res) => {
+        console.log('扫描成功', res)
+        this.setData({
+          scanpath: res.result
+        })
+      }
     })
   },
   onShow () {

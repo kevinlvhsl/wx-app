@@ -18,6 +18,11 @@
 .subject-info .subject-meta {
   font-size: 13px;
 }
+.subject-info .subject-star {
+  color: dodgerblue;
+  font-size: 14px;
+  padding-left: 10px;
+}
 .subject-summary {
   margin-top: 20rpx;
 }

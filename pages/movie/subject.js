@@ -22,6 +22,12 @@ Page({
   onLoad (option) {
     const id = option.id
     console.log(id)
+    wx.setNavigationBarTitle({
+      title: '电影详情',
+      success: function(res) {
+        // success
+      }
+    })
     // 做缓存，已经加载过的电影，先看缓存中有没有，如有则直接用缓存，没有则加载后缓存
     const subjects = wx.getStorageSync('subjects') || {}
     if (subjects[id]) {
@@ -30,7 +36,8 @@ Page({
         meta: this.getMeta(subjects[id])
       })
     } else {
-      api.findMovieById(id,(data) => {
+      wx.showNavigationBarLoading()
+      api.findMovieById(id, (data) => {
         console.log(data)
         this.setData({
           movie: data,
@@ -38,8 +45,10 @@ Page({
         })
         subjects[id] = data
         wx.setStorageSync('subjects', subjects)
+        wx.hideNavigationBarLoading()
       }, (res) => {
         console.error('err:', res)
+        wx.hideNavigationBarLoading()
       })
 
     }
@@ -59,6 +68,10 @@ Page({
       return name ? name +' / '+ value.name : value.name
     }, '')
     return item.countries.join(' / ') + ' / ' + item.genres.join(' / ') + ' / ' + item.directors[0].name +'(导演) / ' + cast
+  },
+  showStarDetail (e) {
+      console.log('star id:', e.currentTarget.dataset.id)
+      api.go('./celebrity', {id: e.currentTarget.dataset.id})
   },
   onReady () {
 

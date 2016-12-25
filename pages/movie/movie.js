@@ -3,6 +3,8 @@
 var app = getApp()
 import api from '../../utils/api.js'
 
+// import {common} from '../../utils/common.js'
+
 import theaters from './theaters.js'
 Page({
   data: {
@@ -40,10 +42,12 @@ Page({
     })
   },
   serachMov () {
+    debugger
     // 跳转到搜索页面
-    wx.navigateTo({
-      url: './search?key='+ this.data.inputValue
-    })
+    api.go('./search', {key: this.data.inputValue})
+    // wx.navigateTo({
+    //   url: './search?key='+ this.data.inputValue
+    // })
   },
   goMovieDetail (event) {
     const id = event.currentTarget.dataset.id

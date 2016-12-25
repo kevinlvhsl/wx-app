@@ -1,5 +1,13 @@
 const HOST = 'https://api.douban.com'
 export default {
+  go(path, params) {
+    const url = path + '?' + Object.keys(params).map(k=>k + '=' + params[k])
+    if (getCurrentPages().length >= 5) {
+      wx.redirectTo({url})
+    } else {
+      wx.navigateTo({url})
+    }
+  },
   searchMovie (keyword, success, error) {
     wx.request({
       url: HOST + '/v2/movie/search',
@@ -66,6 +74,21 @@ export default {
     //     }
     //   })
     // })
+  },
+  getCelebrityById (id, success, error) {
+    wx.request({
+      url: HOST + `/v2/movie/celebrity/${id}`,
+      method: 'GET',
+      header: {
+          'Content-Type': 'json'
+      },
+      success: (res) => {
+        success && success(res.data)
+      },
+      fail: (err) => {
+        console.error('接口 subject 错误了', err)
+      }
+    })
   }
 
 }
