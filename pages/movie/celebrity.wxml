@@ -8,7 +8,7 @@
       <view>出生地：{{star.born_place}}</view>
       <view>其它：{{star.aka}}</view>
       <view>工作：</view>
-      <view wx:for="{{star.works}}" wx:for-item="work">
+      <view class="star-work" wx:for="{{star.works}}" wx:for-item="work">
         <text>{{work.roles[0]}} </text>
         <text> {{work.subject.title}}</text>
       </view>

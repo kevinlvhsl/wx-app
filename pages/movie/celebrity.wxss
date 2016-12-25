@@ -1,0 +1,12 @@
+.info-box {
+  padding: 20rpx;
+  background-color: #fff;
+  font-size: 14px;
+}
+.info-box image {
+  height: 800rpx;
+  width: 100%;
+}
+.info-box .star-work {
+  padding-left: 80rpx;
+}
