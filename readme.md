@@ -6,6 +6,7 @@ clock // 一个canvas时钟
 movie // 电影列表首页
 subject //电影详情
 search  //搜索
+celebrity  //获取影人信息
 
 > https://api.douban.com
 
