@@ -3,4 +3,5 @@
 .page-bg {
     background-color: #fff;
     min-height: 100%;
+    -webkit-overflow-scrolling: touch;
 }
