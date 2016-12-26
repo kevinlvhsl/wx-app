@@ -27,7 +27,8 @@ Page({
       }
     })
     // 做缓存，已经加载过的电影，先看缓存中有没有，如有则直接用缓存，没有则加载后缓存
-    const celebritys = wx.getStorageSync('celebrity') || {}
+    const celebritys = wx.getStorageSync('celebritys') || {}
+
     if (celebritys[id]) {
       this.setData({
         star: celebritys[id]

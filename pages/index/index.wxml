@@ -20,7 +20,7 @@
 
   <audio poster="{{audio.poster}}" name="{{audio.name}}" author="{{audio.author}}" binderror="audioError" src="{{audio.audioUrl}}" id="myAudio" controls loop></audio>
 <view bindtap="scan" >==============</view>
-<view bindtap="scan" >扫描二维码</view>
+<button bindtap="scan">扫描二维码</button>
 <view bindtap="scan" >==============</view>
 <view bindtap="scan" >扫描结果：{{scanpath}}</view>
 </view>

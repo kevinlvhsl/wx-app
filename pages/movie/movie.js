@@ -20,15 +20,19 @@ Page({
   },
   onLoad () {
     console.log('load')
-    const self = this
-    console.log('theaters:::', theaters)
+    wx.setNavigationBarTitle({
+      title: '热映电影',
+      success: function(res) {
+        // success
+      }
+    })
     api.getTheaters((data) => {
       // console.log('获取回来的数据：', res.data)
       this.setData({
         in_theaters: data
       }, () => {
         console.log('complete: complete')
-        self.setData({
+        this.setData({
           in_theaters: theaters
         })
       })
