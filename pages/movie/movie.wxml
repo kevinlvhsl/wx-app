@@ -5,31 +5,10 @@
     <icon type="search" size="26" bindtap="serachMov"/>
   </view>
   <view class="ms-wrap">
-    <view class="mov" wx:for="{{in_theaters.subjects}}" wx:for-item="item"  wx:key="{{item.id}}"
-      bindtap="goMovieDetail" data-id="{{item.id}}">
-      <image class="mov-avatar" src="{{item.images.small}}" background-size="cover"></image>
-      <text class="mov-title" >{{item.title}}</text>
-    </view>
-  </view>
-  <view class="ms-wrap">
-    <view class="mov" wx:for="{{in_theaters.subjects}}" wx:for-item="item"  wx:key="{{item.id}}"
-      bindtap="goMovieDetail" data-id="{{item.id}}">
-      <image class="mov-avatar" src="{{item.images.small}}" background-size="cover"></image>
-      <text class="mov-title" >{{item.title}}</text>
-    </view>
-  </view>
-  <view class="ms-wrap">
-    <view class="mov" wx:for="{{in_theaters.subjects}}" wx:for-item="item"  wx:key="{{item.id}}"
-      bindtap="goMovieDetail" data-id="{{item.id}}">
-      <image class="mov-avatar" src="{{item.images.small}}" background-size="cover"></image>
-      <text class="mov-title" >{{item.title}}</text>
-    </view>
-  </view>
-  <view class="ms-wrap">
-    <view class="mov" wx:for="{{in_theaters.subjects}}" wx:for-item="item"  wx:key="{{item.id}}"
-      bindtap="goMovieDetail" data-id="{{item.id}}">
-      <image class="mov-avatar" src="{{item.images.small}}" background-size="cover"></image>
-      <text class="mov-title" >{{item.title}}</text>
+    <view class="mov" wx:for="{{in_theaters.subjects}}" wx:for-item="movie"  wx:key="{{movie.id}}"
+      bindtap="goMovieDetail" data-id="{{movie.id}}">
+      <import src="../../templates/movieInfoTpl.wxml"/>
+      <template is="movieInfo" data="{{movie}}"/>
     </view>
   </view>
 </view>

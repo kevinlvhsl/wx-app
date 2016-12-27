@@ -1,0 +1,6 @@
+
+<template name="movieInfo">
+    <image class="mov-avatar" src="{{movie.images.small}}" background-size="cover"></image>
+    <text class="mov-title" >{{movie.title}}</text>
+</template>
+

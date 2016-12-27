@@ -9,7 +9,7 @@
   margin: 10rpx 5%;
 }
 .info-box .star-work {
-  padding-left: 80rpx;
+  padding-left: 70rpx;
 }
 .info-box .introduce {
   border-top:2px solid #ffb712;
@@ -17,4 +17,7 @@
 }
 .introduce label {
   font-weight: 600;
+  text-align-last: justify;
+  width: 110rpx;
+  display: inline-block;
 }

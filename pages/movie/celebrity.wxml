@@ -3,27 +3,27 @@
     <image src="{{star.avatars.large}}"></image>
     <view class="introduce">
       <view>
-        <label>中文名：</label>
+        <label>中文名</label>:
         {{star.name}}
       </view>
       <view>
-        <label>英文名：</label>
+        <label>英文名</label>:
         {{star.name_en}}
       </view>
       <view>
-        <label>性别：</label>
+        <label>性别</label>:
         {{star.gender}}
       </view>
       <view>
-        <label>出生地：</label>
+        <label>出生地</label>:
         {{star.born_place}}
       </view>
       <view>
-        <label>其它：</label>
+        <label>其它</label>:
         {{star.aka}}
       </view>
       <view>
-        <label>作品：</label>
+        <label>作品</label>:
       </view>
       <view class="star-work" wx:for="{{star.works}}" wx:for-item="work">
         <text>角色: {{work.roles[0]}} </text>

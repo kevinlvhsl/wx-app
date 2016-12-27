@@ -67,7 +67,8 @@ Page({
     var cast = item.casts.reduce((name,value) => {
       return name ? name +' / '+ value.name : value.name
     }, '')
-    return item.countries.join(' / ') + ' / ' + item.genres.join(' / ') + ' / ' + item.directors[0].name +'(导演) / ' + cast
+    return item.countries.join(' / ') + ' / ' + item.genres.join(' / ') + ' / ' + item.directors[0].name +'(导演) / ' 
+    // + cast
   },
   showStarDetail (e) {
       console.log('star id:', e.currentTarget.dataset.id)
