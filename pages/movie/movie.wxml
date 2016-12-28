@@ -1,8 +1,8 @@
 <view class="page-bg">
   <view class="section-search">
     <input class="mv-search" bindinput="bindKeyInput"
-      placeholder="电影名称或导演名" maxlength="20" auto-focus />
-    <icon type="search" size="26" bindtap="serachMov"/>
+      placeholder="电影名称或导演名" maxlength="20"  focus="{{focus}}" />
+    <icon type="search" size="26" bindtap="searchMovie"/>
   </view>
   <view class="ms-wrap">
     <view class="mov" wx:for="{{in_theaters.subjects}}" wx:for-item="movie"  wx:key="{{movie.id}}"

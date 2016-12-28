@@ -9,7 +9,8 @@ import theaters from './theaters.js'
 Page({
   data: {
     in_theaters: [],
-    inputValue: ''
+    inputValue: '',
+    focus: false
   },
   onShareAppMessage: function () {
     return {
@@ -61,8 +62,17 @@ Page({
       inputValue: e.detail.value
     })
   },
-  serachMov () {
+  searchMovie () {
     // 跳转到搜索页面
+    if (this.data.inputValue.trim().length === 0) {
+      wx.showToast({
+        title: '关键词不能为空！',
+        duration: 2000
+      })
+      this.setData({focus: true})
+      return
+    }
+    wx.hideKeyboard()
     api.go('./search', {key: this.data.inputValue})
     // wx.navigateTo({
     //   url: './search?key='+ this.data.inputValue

@@ -8,7 +8,8 @@ Page({
   data: {
     movies: [],
     searching: true,
-    keyword: ''
+    keyword: '',
+    focus: false
   },
   onLoad (option) {
     wx.setNavigationBarTitle({
@@ -36,6 +37,7 @@ Page({
   },
   bindKeyInput: function(e) {
       console.log('输入了', e.detail.value)
+
     this.setData({
       keyword: e.detail.value,
       searching: true
@@ -48,7 +50,16 @@ Page({
     })
   },
   searchMovie () {
+    if (e.detail.value.trim().length === 0) {
+      wx.showToast({
+        title: '关键词不能为空！',
+        duration: 2000
+      })
+      this.setData({focus: true})
+      return
+    }
     console.log('search')
+    wx.hideKeyboard()
     wx.showNavigationBarLoading()
     api.searchMovie(this.data.keyword, (data) => {
       console.log(data)
