@@ -7,6 +7,9 @@
   height: 900rpx;
   width: 90%;
   margin: 10rpx 5%;
+  background-image: url('../../media/default.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 .info-box .star-work {
   padding-left: 70rpx;

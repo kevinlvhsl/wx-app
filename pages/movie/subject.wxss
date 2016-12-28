@@ -8,6 +8,9 @@
   width: 96%;
   display: block;
   margin: 20rpx auto;
+  background-image: url('../../media/default.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 .subject-info .subject-title {
   text-align: center;

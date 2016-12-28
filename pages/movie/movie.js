@@ -2,7 +2,7 @@
 //获取应用实例
 var app = getApp()
 import api from '../../utils/api.js'
-
+app.aldstat.sendEvent("注册")
 // import {common} from '../../utils/common.js'
 
 import theaters from './theaters.js'
@@ -46,12 +46,12 @@ Page({
       title: '加载中',
       icon: 'loading'
     })
-    
+
     setTimeout(()=>{
       wx.hideToast()
       wx.stopPullDownRefresh()
     }, 3000)
-    
+
   },
   onReachBottom () {
     console.log('上拉加载更多了')
