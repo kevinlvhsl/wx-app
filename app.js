@@ -4,8 +4,7 @@ App({
   globalData: {
     name: 'kevin',
     age: 26,
-    userInfo: null,
-    DOUBAN_HOST: 'https://api.douban.com'
+    userInfo: null
   },
   onLaunch: function () {
     //调用API从本地缓存中获取数据

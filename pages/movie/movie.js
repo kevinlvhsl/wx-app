@@ -58,6 +58,7 @@ Page({
     console.log('上拉加载更多了')
   },
   bindKeyInput: function(e) {
+    console.log('e:', e)
     this.setData({
       inputValue: e.detail.value
     })

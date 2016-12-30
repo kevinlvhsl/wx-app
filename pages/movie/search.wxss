@@ -18,6 +18,11 @@
   height: 80rpx;
   color: #a4a9ae;
 }
+.result-tip {
+  height: 80rpx;
+  color: #959698;
+  text-align: center
+}
 .ms-wrap {
   display: flex;
   flex-wrap: wrap;
@@ -46,4 +51,10 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.no-more {
+  text-align: center;
+  font-size: 14px;
+  color: #ccc;
+  line-height: 80rpx;
 }

@@ -8,11 +8,12 @@ export default {
       wx.navigateTo({url})
     }
   },
-  searchMovie (keyword, success, error) {
+  searchMovie (keyword, start = 0, success) {
     wx.request({
       url: HOST + '/v2/movie/search',
       data: {
-        q: keyword
+        q: keyword,
+        start: start
       },
       method: 'GET',
       header: {

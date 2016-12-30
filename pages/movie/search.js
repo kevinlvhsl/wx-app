@@ -9,7 +9,9 @@ Page({
     movies: [],
     searching: true,
     keyword: '',
-    focus: false
+    focus: false,
+    isNewLoad: true,
+    total: 0
   },
   onLoad (option) {
     wx.setNavigationBarTitle({
@@ -22,23 +24,13 @@ Page({
     this.setData({
       keyword: option.key
     })
-    wx.showNavigationBarLoading()
-    api.searchMovie(option.key, (data) => {
-      console.log(data)
-      this.setData({
-        searchs: data,
-        searching: false
-      })
-      wx.hideNavigationBarLoading()
-    }, (res) => {
-      wx.hideNavigationBarLoading()
-      console.error('err:', res)
-    })
+    this.searchMovie()
   },
   bindKeyInput: function(e) {
       console.log('输入了', e.detail.value)
 
     this.setData({
+      isNewLoad: true,
       keyword: e.detail.value,
       searching: true
     })
@@ -49,8 +41,14 @@ Page({
       url: './subject?id='+ id
     })
   },
+  onReachBottom () {
+    console.log('上拉加载更多了')
+    if ( this.data.total - this.data.movies.length) {
+      this.searchMovie()
+    }
+  },
   searchMovie () {
-    if (e.detail.value.trim().length === 0) {
+    if (this.data.keyword.trim().length === 0) {
       wx.showToast({
         title: '关键词不能为空！',
         duration: 2000
@@ -61,13 +59,22 @@ Page({
     console.log('search')
     wx.hideKeyboard()
     wx.showNavigationBarLoading()
-    api.searchMovie(this.data.keyword, (data) => {
+    wx.showToast({
+      title: '加载数据中...',
+      icon: 'loading',
+      duration: 5000
+    })
+    api.searchMovie(this.data.keyword, Math.max(0, this.data.movies.length) , (data) => {
       console.log(data)
+      const temp = this.data.isNewLoad ? data.subjects : this.data.movies.concat(data.subjects)
       this.setData({
-        searchs: data,
-        searching: false
+        movies: temp,
+        isNewLoad: false,
+        searching: false,
+        total: data.total
       })
       wx.hideNavigationBarLoading()
+      wx.hideToast()
     }, (res) => {
       console.error('err:', res)
       wx.hideNavigationBarLoading()
