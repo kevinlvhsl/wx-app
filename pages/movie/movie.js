@@ -3,7 +3,7 @@
 var app = getApp()
 import api from '../../utils/api.js'
 app.aldstat.sendEvent("注册")
-// import {common} from '../../utils/common.js'
+// import common from '../common.js'
 
 import theaters from './theaters.js'
 Page({
