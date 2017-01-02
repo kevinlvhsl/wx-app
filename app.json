@@ -7,6 +7,7 @@
     "pages/index/index",
     "pages/clock/clock",
     "pages/logs/logs",
+    "pages/belle/index",
     "pages/test/test"
   ],
   "debug": false,
@@ -26,8 +27,8 @@
     }, {
       "iconPath": "media/navbar_un_1.png",
       "selectedIconPath": "media/navbar_1.png",
-      "pagePath": "pages/logs/logs",
-      "text": "日志",
+      "pagePath": "pages/belle/index",
+      "text": "美女",
       "selectedColor": "#FF5943"
     }, {
       "iconPath": "media/navbar_un_4.png",
