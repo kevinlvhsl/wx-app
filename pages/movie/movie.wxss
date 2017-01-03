@@ -21,13 +21,13 @@
 .mov {
   width: 32%;
   text-align: center;
-  height: 300rpx;
+  height: 330rpx;
   padding: 8rpx 0;
 }
 .mov image {
   display: inline-block;
-  height: 250rpx;
-  width: 170rpx;
+  height: 270rpx;
+  width: 90%;
 }
 .mov text {
   display: block;

@@ -33,7 +33,7 @@
 .ms-wrap {
   display: flex;
   flex-wrap: wrap;
-  padding: 20rpx;
+  padding: 20rpx 0;
   border-radius: 20rpx;
   background-color: #fff;
 }
@@ -46,8 +46,8 @@
 }
 .mov image {
   display: inline-block;
-  height: 250rpx;
-  width: 170rpx;
+  height: 270rpx;
+  width: 90%;
 }
 .mov text {
   display: block;

@@ -5,10 +5,12 @@
     <icon type="search" size="26" bindtap="searchMovie"/>
   </view>
   <view class="ms-wrap">
-    <view class="mov" wx:for="{{in_theaters.subjects}}" wx:for-item="movie"  wx:key="{{movie.id}}"
+    <import src="../../templates/moviesTpl.wxml"/>
+    <template is="movieList" data="{{movies: in_theaters.subjects}}"> </template>
+    <!-- <view class="mov" wx:for="{{in_theaters.subjects}}" wx:for-item="movie"  wx:key="{{movie.id}}"
       bindtap="goMovieDetail" data-id="{{movie.id}}">
       <import src="../../templates/movieInfoTpl.wxml"/>
       <template is="movieInfo" data="{{movie}}"/>
-    </view>
+    </view> -->
   </view>
 </view>

@@ -30,6 +30,6 @@
 .large-wrap .close-btn {
     position: absolute;
     z-index: 11;
-    top: 30rpx;
-    right: 30rpx;
+    top: 40rpx;
+    right: 40rpx;
 }

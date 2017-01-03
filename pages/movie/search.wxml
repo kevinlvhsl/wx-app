@@ -6,19 +6,19 @@
   </view>
   <view class="search-tip" wx:if="{{!searching}}">
     搜索 "{{keyword}}" 的结果
-    <block>
-      <text>
-        共{{total}}条
-      </text>
-    </block>
+    <text> 共{{total}}条 </text>
   </view>
   <view class="ms-wrap" wx:if="{{movies.length > 0}}">
+    <import src="../../templates/moviesTpl.wxml"/>
+    <template is="movieList" data="{{movies}}"> </template>
+  </view>
+<!--
     <view class="mov" wx:for="{{movies}}" wx:key="{{item.id}}" wx:for-item="item"
       bindtap="goMovieDetail"data-id="{{item.id}}">
       <image class="mov-avatar" src="{{item.images.small}}" background-size="cover"></image>
       <text class="mov-title" >{{item.title}}</text>
     </view>
-  </view>
+  </view> -->
   <view class="result-tip"  wx:if="{{movies.length === 0}}">暂时没有结果</view>
   <view class="no-more" wx:if="{{movies.length > 0 && movies.length === total}}">没有更多了...</view>
 </view>

@@ -1,0 +1,9 @@
+<template name="movieList">
+    <view class="mov" wx:for="{{movies}}" wx:key="{{item.id}}" wx:for-item="item"
+      bindtap="goMovieDetail"data-id="{{item.id}}">
+      <!-- <import src="./movieInfoTpl.wxml"/>
+      <template is="movieInfo" data="{{movie}}"/> -->
+      <image class="mov-avatar" src="{{item.images.small}}" background-size="cover"></image>
+      <text class="mov-title" >{{item.title}}</text>
+    </view>
+</template>
