@@ -2,16 +2,39 @@
 <view style="display:none">
   <image wx:for="{{images}}" wx:key="{{item.id}}" id="{{item.id}}" src="{{item.img}}" bindload="onImageLoad"></image>
 </view>
+<view class="large-wrap" wx:if="{{largeImg.src}}" animation="{{largeAnimation}}">
+  <image class="large-image" src="{{largeImg.src}}"style="height: {{largeImg.height}}px;"></image>
+  <view class="close-btn" bindtap="closePop">
+    <icon type="cancel" size="26" color="#ccc"/>
+  </view>
+</view>
+
+<template name="belleImage">
+  <image
+    src="{{item.img}}"
+    style="width:100%;height:{{item.height}}px"
+    data-src="{{item.img}}"
+    data-width="{{item.oW}}"
+    data-height="{{item.oH}}"
+    bindtap="showLargeImage"
+  ></image>
+</template>
+
 <scroll-view scroll-y="true" style="height:{{scrollH}}px" bindscrolltolower="loadImages">
   <view style="width:100%">
-    <view class="img_item">
-      <view wx:for="{{col1}}" wx:key="{{item.id}}">
-        <image src="{{item.img}}" style="width:100%;height:{{item.height}}px"></image>
+    <view class="img-item">
+      <view class="img-col" wx:for="{{col1}}" wx:key="{{item.id}}" animation="{{imgAnimations[item.id]}}">
+        <template is="belleImage" data="{{item}}"></template>
       </view>
     </view>
-    <view class="img_item">
-      <view wx:for="{{col2}}" wx:key="{{item.id}}">
-        <image src="{{item.img}}" style="width:100%;height:{{item.height}}px"></image>
+    <view class="img-item">
+      <view class="img-col"  wx:for="{{col2}}" wx:key="{{item.id}}" animation="{{imgAnimations[item.id]}}">
+        <template is="belleImage" data="{{item}}"></template>
+      </view>
+    </view>
+    <view class="img-item">
+      <view class="img-col"  wx:for="{{col3}}" wx:key="{{item.id}}" animation="{{imgAnimations[item.id]}}">
+        <template is="belleImage" data="{{item}}"></template>
       </view>
     </view>
   </view>

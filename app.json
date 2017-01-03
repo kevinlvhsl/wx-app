@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/belle/index",
     "pages/movie/movie",
     "pages/movie/subject",
     "pages/movie/search",
@@ -7,7 +8,6 @@
     "pages/index/index",
     "pages/clock/clock",
     "pages/logs/logs",
-    "pages/belle/index",
     "pages/test/test"
   ],
   "debug": false,

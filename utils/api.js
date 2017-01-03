@@ -12,7 +12,7 @@ export default {
     wx.request({
       url: HOST + '/v2/movie/search',
       data: {
-        q: keyword,
+        q: encodeURI(keyword),
         start: start
       },
       method: 'GET',
