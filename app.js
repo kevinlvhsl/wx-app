@@ -4,7 +4,8 @@ App({
   globalData: {
     name: 'kevin',
     age: 26,
-    userInfo: null
+    userInfo: null,
+    peopleId: 0
   },
   onLaunch: function () {
     //调用API从本地缓存中获取数据

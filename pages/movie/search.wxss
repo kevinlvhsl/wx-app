@@ -1,21 +1,10 @@
-.section-search {
-  height: 100rpx;
-  display: relative;
-}
-.section-search .mv-search {
-  height: 100rpx;
-  line-height: 100rpx;
-  padding: 6rpx 0 6rpx 20rpx;
-  width: 85%;
-}
-.section-search icon {
-  position: absolute;
-  top: 27rpx;
-  right: 25rpx;
-  z-index: 1
+@import "../../templates/searchBar.wxss";
+.had-srarch {
+  padding-top: 100rpx;
 }
 .search-tip {
   height: 80rpx;
+  line-height:80rpx;
   color: #a4a9ae;
 }
 .result-tip {
@@ -40,13 +29,12 @@
 .mov {
   width: 32%;
   text-align: center;
-  height: 300rpx;
-  padding: 8rpx 0;
+  height: 340rpx;
   display:inline-block
 }
 .mov image {
   display: inline-block;
-  height: 270rpx;
+  height: 280rpx;
   width: 90%;
 }
 .mov text {

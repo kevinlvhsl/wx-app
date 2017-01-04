@@ -1,6 +1,6 @@
 <!-- 利用列表图片加载，绑定图片的load事件，分别向两列中添加分栏 -->
 <view style="display:none">
-  <image wx:for="{{images}}" wx:key="{{item.id}}" id="{{item.id}}" src="{{item.img}}" bindload="onImageLoad"></image>
+  <image wx:for="{{images}}" wx:for-item="image" wx:key="{{image.id}}" id="{{image.id}}" src="{{image.img}}" bindload="onImageLoad"></image>
 </view>
 <view class="large-wrap" wx:if="{{largeImg.src}}" animation="{{largeAnimation}}">
   <image class="large-image" src="{{largeImg.src}}"style="height: {{largeImg.height}}px;"></image>
@@ -23,18 +23,18 @@
 <scroll-view scroll-y="true" style="height:{{scrollH}}px" bindscrolltolower="loadImages">
   <view style="width:100%">
     <view class="img-item">
-      <view class="img-col" wx:for="{{col1}}" wx:key="{{item.id}}" animation="{{imgAnimations[item.id]}}">
-        <template is="belleImage" data="{{item}}"></template>
+      <view class="img-col" wx:for="{{col1}}"  wx:for-item="img" wx:key="{{img.id}}" animation="{{imgAnimations[img.id]}}">
+        <template is="belleImage" data="{{item:img}}"></template>
       </view>
     </view>
     <view class="img-item">
-      <view class="img-col"  wx:for="{{col2}}" wx:key="{{item.id}}" animation="{{imgAnimations[item.id]}}">
-        <template is="belleImage" data="{{item}}"></template>
+      <view class="img-col"  wx:for="{{col2}}" wx:for-item="img" wx:key="{{img.id}}" animation="{{imgAnimations[img.id]}}">
+        <template is="belleImage" data="{{item:img}}"></template>
       </view>
     </view>
     <view class="img-item">
-      <view class="img-col"  wx:for="{{col3}}" wx:key="{{item.id}}" animation="{{imgAnimations[item.id]}}">
-        <template is="belleImage" data="{{item}}"></template>
+      <view class="img-col"  wx:for="{{col3}}"  wx:for-item="img" wx:key="{{img.id}}" animation="{{imgAnimations[img.id]}}">
+        <template is="belleImage" data="{{item:img}}"></template>
       </view>
     </view>
   </view>

@@ -2,6 +2,8 @@ let col1H = 0;
 let col2H = 0;
 let col3H = 0;
 let ww = 320;
+let loading = false;  //限制连续上拉加载
+
 const baseOption = {
   transformOrigin: "50% 50%",
   duration: 800,
@@ -152,21 +154,26 @@ Page({
     })
   },
   loadImages: function () {
+    if (loading) return
+    loading = true
     var that = this
     wx.showToast({
     title: '拼命加载中...',
     icon: 'loading',
-    duration: 3000
+    duration: 4000
     })
     wx.request({
       url:'https://api.getweapp.com/vendor/tngou/tnfs/api/list?page='+this.data.page,
       success: function(res) {
         wx.hideToast()
+        loading = false
         that.setData({
           loadingCount: res.data.tngou.length,
           images: res.data.tngou,
           page: that.data.page+1
         })
+      }, fail : function () {
+        loading = false
       }
     })
 

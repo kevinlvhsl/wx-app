@@ -1,16 +1,20 @@
-<view class="page-bg">
-  <view class="section-search">
+<view class="page-bg had-srarch">
+<!--   <view class="section-search">
     <input class="mv-search" bindinput="bindKeyInput"
       placeholder="电影名称或导演名" maxlength="20"  focus="{{focus}}" />
     <icon type="search" size="26" bindtap="searchMovie"/>
-  </view>
+  </view> -->
+  <import src="../../templates/searchBarTpl.wxml"/>
+  <template is="searchBar" data="{{focus: false,searchMovie,bindKeyInput}}"></template>
+  <view class="theater-title">{{title}}</view>
   <view class="ms-wrap">
     <import src="../../templates/moviesTpl.wxml"/>
-    <template is="movieList" data="{{movies: in_theaters.subjects}}"> </template>
-    <!-- <view class="mov" wx:for="{{in_theaters.subjects}}" wx:for-item="movie"  wx:key="{{movie.id}}"
+    <template is="movieList" data="{{movies}}"> </template>
+    <!-- <view class="mov" wx:for="{{movies}}" wx:for-item="movie"  wx:key="{{movie.id}}"
       bindtap="goMovieDetail" data-id="{{movie.id}}">
       <import src="../../templates/movieInfoTpl.wxml"/>
       <template is="movieInfo" data="{{movie}}"/>
     </view> -->
   </view>
+  <view class="no-more" wx:if="{{movies.length > 0 && movies.length === total}}">没有更多了...</view>
 </view>

@@ -28,12 +28,12 @@ export default {
       }
     })
   },
-  getTheaters (success, error) {
+  getTheaters (page = 0, success, error) {
     wx.request({
       url: HOST + '/v2/movie/in_theaters',
       data: {
-        start: 0,
-        count: 9
+        start: page * 20,
+        count: 20
       },
       method: 'GET',
       header: {

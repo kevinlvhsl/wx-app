@@ -1,12 +1,14 @@
 {
   "pages":[
-    "pages/belle/index",
+    "pages/chat/index",
+    "pages/chat/message",
     "pages/movie/movie",
     "pages/movie/subject",
     "pages/movie/search",
     "pages/movie/celebrity",
     "pages/index/index",
     "pages/clock/clock",
+    "pages/belle/index",
     "pages/logs/logs",
     "pages/test/test"
   ],

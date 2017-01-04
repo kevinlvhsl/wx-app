@@ -8,9 +8,12 @@ app.aldstat.sendEvent("注册")
 import theaters from './theaters.js'
 Page({
   data: {
-    in_theaters: [],
+    movies: [],
     inputValue: '',
-    focus: false
+    focus: false,
+    title: '正在上映的电影',
+    total: 0,
+    page: 0
   },
   onShareAppMessage: function () {
     return {
@@ -27,19 +30,31 @@ Page({
         // success
       }
     })
-    api.getTheaters((data) => {
-      // console.log('获取回来的数据：', res.data)
-      this.setData({
-        in_theaters: data
-      }, () => {
-        console.log('complete: complete')
-        this.setData({
-          in_theaters: theaters
-        })
-      })
-    })
+    this.getData()
   },
   onReady () {
+  },
+  getData () {
+    wx.showToast({
+      title: '加载数据中...',
+      icon: 'loading',
+      duration: 5000
+    })
+    api.getTheaters(this.data.page, (data) => {
+      let temp = this.data.movies.concat(data.subjects)
+      this.setData({
+        movies: temp,
+        title: data.title,
+        page: this.data.page + 1,
+        total: data.total
+      })
+      wx.hideToast()
+    }, () => {
+        console.log('error: error')
+        this.setData({
+          movies: theaters.subjects
+        })
+    })
   },
   onPullDownRefresh () {
     console.log('下拉刷新了！！')
@@ -55,7 +70,9 @@ Page({
 
   },
   onReachBottom () {
-    console.log('上拉加载更多了')
+    if (this.data.movies.length < this.data.total ) {
+      this.getData()
+    }
   },
   bindKeyInput: function(e) {
     console.log('e:', e)
