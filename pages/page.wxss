@@ -5,3 +5,14 @@
     min-height: 100%;
     -webkit-overflow-scrolling: touch;
 }
+
+.clearfix {
+  overflow: hidden;
+
+}
+.padding {
+   padding: 20rpx;
+}
+.padding_half {
+   padding: 10rpx;
+}
