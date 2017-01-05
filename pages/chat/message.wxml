@@ -54,3 +54,18 @@
     <view class="text-center icon {{ more }} text-center" style="margin-left: 5px;" bindtap="elseBtn"></view>
   </view>
 </view>
+
+<block>
+  <view id="elsePanel" wx:if="{{moreBox}}" animation="{{animation}}">
+    <view class="else-row">
+        <image class="moreImage" bindtap="chooseImg" src="/media/image.png"></image>
+        <image class="moreImage" bindtap="getlocat" src="/media/map.png"></image>
+    </view>
+  </view>
+</block>
+
+<block>
+  <view id="emotionPanel" wx:if="{{emotionBox}}" animation="{{animation}}">
+       <image wx:for="{{ emotions }}" wx:key="item.id" src="{{item.src}}" class="emotion" data-name="{{item.name}}" bindtap="chooseEmotion"></image>
+</view>
+</block>

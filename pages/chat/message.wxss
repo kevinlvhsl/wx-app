@@ -49,34 +49,12 @@
   border-right: none;
   border-left: 12px solid #41d1ad;
 }
-/*.msg-item.isme .message::before {
-  content: '';
-  display: none;
-  float: right;
-}*/
-/*.msg-item.isme .message::after {
-  content: '';
-  display: inline-block;
-  float: right;
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-left: 12px solid #41d1ad;
-  margin-top: 35rpx;
-  width: 0;
-  height: 0;
-}*/
 
-/*.msg-item .isme .message {
-  float: right;
-  margin-right: 40rpx;
-}
-.msg-item .isme .triangle {
-  float: right;
-}
-.msg-item .isme .avatar {
-  float: right;
-}
-*/
+.elsePanel {}
+
+  .else-row{
+  }
+    .moreImage{}
 
 .wa-row {
   display: flex;
