@@ -5,7 +5,7 @@
     <icon type="search" size="26" bindtap="searchMovie"/>
   </view> -->
   <import src="../../templates/searchBarTpl.wxml"/>
-  <template is="searchBar" data="{{focus: false,searchMovie,bindKeyInput}}"></template>
+  <template is="searchBar" data="{{focus: false,keyword,searchMovie,bindKeyInput}}"></template>
   <view class="theater-title">{{title}}</view>
   <view class="ms-wrap">
     <import src="../../templates/moviesTpl.wxml"/>

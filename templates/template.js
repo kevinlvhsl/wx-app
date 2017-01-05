@@ -6,7 +6,7 @@ import api from '../utils/api.js'
 Page({
   data: {
     movies: [],
-    inputValue: ''
+    keyword: ''
   },
   onShareAppMessage: function () {
     return {
@@ -32,12 +32,12 @@ Page({
   },
   bindKeyInput: function(e) {
     this.setData({
-      inputValue: e.detail.value
+      keyword: e.detail.value
     })
   },
   serachMov () {
     // 跳转到搜索页面
-    api.go('./search', {key: this.data.inputValue})
+    app.go('./search', {key: this.data.keyword})
 
   },
   goMovieDetail (event) {

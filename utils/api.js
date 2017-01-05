@@ -1,13 +1,5 @@
 const HOST = 'https://api.douban.com'
 export default {
-  go(path, params) {
-    const url = path + '?' + Object.keys(params).map(k=>k + '=' + params[k])
-    if (getCurrentPages().length >= 5) {
-      wx.redirectTo({url})
-    } else {
-      wx.navigateTo({url})
-    }
-  },
   searchMovie (keyword, start = 0, success) {
     wx.request({
       url: HOST + '/v2/movie/search',

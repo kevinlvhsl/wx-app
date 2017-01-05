@@ -1,7 +1,8 @@
 {
-  "pages":[
+  "pages": [
     "pages/chat/index",
     "pages/chat/message",
+    "pages/test/test",
     "pages/movie/movie",
     "pages/movie/subject",
     "pages/movie/search",
@@ -9,8 +10,7 @@
     "pages/index/index",
     "pages/clock/clock",
     "pages/belle/index",
-    "pages/logs/logs",
-    "pages/test/test"
+    "pages/logs/logs"
   ],
   "debug": false,
   "window":{
@@ -31,6 +31,12 @@
       "selectedIconPath": "media/navbar_1.png",
       "pagePath": "pages/belle/index",
       "text": "美女",
+      "selectedColor": "#FF5943"
+    },  {
+      "iconPath": "media/navbar_un_1.png",
+      "selectedIconPath": "media/navbar_1.png",
+      "pagePath": "pages/chat/index",
+      "text": "聊天",
       "selectedColor": "#FF5943"
     }, {
       "iconPath": "media/navbar_un_4.png",

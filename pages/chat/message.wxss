@@ -1,0 +1,55 @@
+.wa-row {
+  display: flex;
+  height: 50px;
+  padding: 10rpx;
+  background-color: #fff;
+}
+
+.input-box {
+  flex: 1;
+  height: 80rpx;
+  padding: 10rpx;
+  border-bottom: 1px solid;
+}
+.input-box input {
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 14px;
+}
+
+
+
+.icon{
+  vertical-align: middle;
+  margin-top: 8rpx;
+  width: 64rpx;
+  height: 64rpx;
+}
+.ion-ios-mic{
+  background-image:url('/media/voice.png');
+  background-size: 64rpx 64rpx;
+  background-repeat: no-repeat;
+  background-position: center center;
+  vertical-align: middle;
+}
+.ion-happy-outline {
+  background-image: url('/media/emotion-o.png');
+  background-size: 64rpx 64rpx;
+  background-repeat: no-repeat;
+  background-position: center center;
+  vertical-align: middle;
+}
+.ion-ios-plus-outline {
+  background-image: url('/media/plus.png');
+  background-size: 64rpx 64rpx;
+  background-repeat: no-repeat;
+  background-position: center center;
+  vertical-align: middle;
+}
+.ion-ios-send {
+  background-image: url('/media/send.png');
+  background-size: 64rpx 64rpx;
+  background-repeat: no-repeat;
+  background-position: center center;
+  vertical-alin: middle;
+}

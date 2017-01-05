@@ -9,7 +9,7 @@ import theaters from './theaters.js'
 Page({
   data: {
     movies: [],
-    inputValue: '',
+    keyword: '',
     focus: false,
     title: '正在上映的电影',
     total: 0,
@@ -77,12 +77,12 @@ Page({
   bindKeyInput: function(e) {
     console.log('e:', e)
     this.setData({
-      inputValue: e.detail.value
+      keyword: e.detail.value
     })
   },
   searchMovie () {
     // 跳转到搜索页面
-    if (this.data.inputValue.trim().length === 0) {
+    if (this.data.keyword.trim().length === 0) {
       wx.showToast({
         title: '关键词不能为空！',
         duration: 2000
@@ -91,15 +91,10 @@ Page({
       return
     }
     wx.hideKeyboard()
-    api.go('./search', {key: this.data.inputValue})
-    // wx.navigateTo({
-    //   url: './search?key='+ this.data.inputValue
-    // })
+    app.go('./search', {key: this.data.keyword})
   },
-  goMovieDetail (event) {
-    const id = event.currentTarget.dataset.id
-    wx.navigateTo({
-      url: './subject?id='+ id
-    })
+  goMovieDetail (e) {
+    const id = e.currentTarget.dataset.id
+    app.go('./subject', {id})
   }
 })

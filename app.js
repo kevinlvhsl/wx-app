@@ -5,7 +5,7 @@ App({
     name: 'kevin',
     age: 26,
     userInfo: null,
-    peopleId: 0
+    peopleId: new Date().getTime(),
   },
   onLaunch: function () {
     //调用API从本地缓存中获取数据
@@ -43,5 +43,13 @@ App({
         }
       })
     }
-  }
+  },
+  go(path, params) {
+    const url = path + '?' + Object.keys(params).map(k=>k + '=' + params[k])
+    if (getCurrentPages().length >= 5) {
+      wx.redirectTo({url})
+    } else {
+      wx.navigateTo({url})
+    }
+  },
 })

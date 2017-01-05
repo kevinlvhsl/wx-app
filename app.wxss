@@ -18,3 +18,7 @@ page {
   background-color: #d9e5db;
   overflow-y: auto;
 }
+
+.flex {
+  display: flex;
+}
