@@ -33,6 +33,7 @@ Page({
                 })
             }
         })
+        // 初始化 表情
         let emotions = []
         for(let i = 1; i<28; i++){
             let j = i;
@@ -106,6 +107,33 @@ Page({
             more: (msg) ? 'ion-ios-send' : 'ion-ios-plus-outline'
         })
     },
+    chooseEmotion (e) {
+        let name = e.currentTarget.dataset.name
+        this.setData({
+            msg: `${this.data.msg}[${name}]`,
+            more: 'ion-ios-send'
+        })
+    },
+    chooseImg () {
+        wx.chooseImage({
+            count: 1,
+            sizeType: 'compressed',
+            success: (res) => {
+                console.log(res)
+            },
+            complete: () => {
+                this.toggleScroll( () => {
+                    this.setData({
+                        moreBox: false,
+                        emotionBox: false
+                    })
+                })
+            }
+        })
+    },
+    getlocat () {
+
+    },
     tapscroll () {
         // 点击了聊天区，直接关闭下面的表情面板或定位面板
         if (this.data.tap === 'ON') {
@@ -166,11 +194,14 @@ Page({
             console.log('发送成功：', this.data.msg)
             this.setData({
                 msg: '',
-                more: 'ion-ios-plus-outline'
+                more: 'ion-ios-plus-outline',
+                moreBox: false,
+                emotionBox: false
             })
-            // 关闭下面操作面板
-            this.toggleScroll()
-            return
+            // 如果当前是有面板打开 则关闭
+            if (this.data.tap === 'ON') {
+                this.toggleScroll()
+            }
         } else { // 点击了 + 号图标
             // 如果当前是表情面板打开 且 图片面板没打开 则直接切换为图片面板
             if (this.data.emotionBox && !this.data.moreBox) {

@@ -67,6 +67,7 @@
 <!-- 表情 -->
 <block>
     <view class="emotionPanel" wx:if="{{emotionBox}}">
-        <image wx:for="{{ emotions }}" wx:key="item.id" src="{{item.src}}" class="emotion" data-name="{{item.name}}" bindtap="chooseEmotion"></image>
+        <image wx:for="{{ emotions }}" wx:key="item.id" src="{{item.src}}"
+            class="emotion" data-name="{{item.name}}" bindtap="chooseEmotion"></image>
     </view>
 </block>
