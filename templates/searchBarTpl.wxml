@@ -1,7 +1,7 @@
 <template name="searchBar">
-  <view class="section-search">
-    <input class="mv-search" bindinput="bindKeyInput"
-      placeholder="电影名称或导演名" maxlength="20" value="{{keyword}}" focus="{{focus}}"  />
-    <icon type="search" size="26" bindtap="searchMovie"/>
-  </view>
+    <view class="section-search">
+        <input class="mv-search" bindinput="bindKeyInput"
+            placeholder="电影名称或导演名" maxlength="20" value="{{keyword}}" focus="{{focus}}"  />
+        <icon type="search" size="26" bindtap="searchMovie"/>
+    </view>
 </template>

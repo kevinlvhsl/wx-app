@@ -1,46 +1,46 @@
 /**test.wxss**/
 
 swiper {
-  width: 100%;
+    width: 100%;
 }
 .slide-image {
-    display: block;
-    height: 150px;
-    width: 375px;
+        display: block;
+        height: 150px;
+        width: 375px;
 }
 .danmu {
-  margin-bottom: 150rpx;
+    margin-bottom: 150rpx;
 }
 .msg-input {
-  border: 1px solid seagreen;
-  border-radius: 10rpx;
+    border: 1px solid seagreen;
+    border-radius: 10rpx;
 }
 input::placeholder {
-  font-size: 24rpx;
-  color: red;
+    font-size: 24rpx;
+    color: red;
 }
 .img-nav {
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
-    animation: upup 2s;
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        animation: upup 2s;
  }
 .menueview {
-  display: flex;
-  background-color: #FFF;
-  padding: 5px 0;
-  width: 100%;
-  height: 50px;
+    display: flex;
+    background-color: #FFF;
+    padding: 5px 0;
+    width: 100%;
+    height: 50px;
 }
 
 .menue-image {
-  width: 30%;
-  height: 50px;
-  
+    width: 30%;
+    height: 50px;
+
 }
 
 @keyframes upup {
-  from {
-    transform: translateX(100px)
-  }
+    from {
+        transform: translateX(100px)
+    }
 }

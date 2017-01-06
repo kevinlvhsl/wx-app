@@ -1,24 +1,24 @@
 <!--index.wxml-->
 <view class=" page-bg">
-  <template name="true" >
-    小程序被访问了{{count}}次
-  </template>
+    <template name="true" >
+        小程序被访问了{{count}}次
+    </template>
 
-  <view class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname" style="color:{{color}}; font-size: 40rpx; text-align: center;width: 200rpx;border: 1px solid green">{{userInfo.nickName}}</text>
-    <template is="true" data="{{count}}"/>
-  </view>
-  <swiper class="swipers" indicator-dots="{{indicatorDots}}"
-      autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <view wx:for="{{imgUrls}}" wx:key="item">
-      <swiper-item>
-        <image src="{{item}}" class="slide-image" />
-      </swiper-item>
+    <view class="userinfo">
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        <text class="userinfo-nickname" style="color:{{color}}; font-size: 40rpx; text-align: center;width: 200rpx;border: 1px solid green">{{userInfo.nickName}}</text>
+        <template is="true" data="{{count}}"/>
     </view>
-  </swiper>
+    <swiper class="swipers" indicator-dots="{{indicatorDots}}"
+            autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <view wx:for="{{imgUrls}}" wx:key="item">
+            <swiper-item>
+                <image src="{{item}}" class="slide-image" />
+            </swiper-item>
+        </view>
+    </swiper>
 
-  <audio poster="{{audio.poster}}" name="{{audio.name}}" author="{{audio.author}}" binderror="audioError" src="{{audio.audioUrl}}" id="myAudio" controls loop></audio>
+    <audio poster="{{audio.poster}}" name="{{audio.name}}" author="{{audio.author}}" binderror="audioError" src="{{audio.audioUrl}}" id="myAudio" controls loop></audio>
 <view bindtap="scan" >==============</view>
 <button bindtap="scan">扫描二维码</button>
 <view bindtap="scan" >==============</view>

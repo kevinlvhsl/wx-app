@@ -1,26 +1,26 @@
 .info-box {
-  padding: 20rpx;
-  background-color: #fff;
-  font-size: 14px;
+    padding: 20rpx;
+    background-color: #fff;
+    font-size: 14px;
 }
 .info-box image {
-  height: 900rpx;
-  width: 90%;
-  margin: 10rpx 5%;
-  background-image: url('../../media/default.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+    height: 900rpx;
+    width: 90%;
+    margin: 10rpx 5%;
+    background-image: url('../../media/default.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 .info-box .star-work {
-  padding-left: 70rpx;
+    padding-left: 70rpx;
 }
 .info-box .introduce {
-  border-top:2px solid #ffb712;
-  padding-top:20rpx;
+    border-top:2px solid #ffb712;
+    padding-top:20rpx;
 }
 .introduce label {
-  font-weight: 600;
-  text-align-last: justify;
-  width: 110rpx;
-  display: inline-block;
+    font-weight: 600;
+    text-align-last: justify;
+    width: 110rpx;
+    display: inline-block;
 }

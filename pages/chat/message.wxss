@@ -1,113 +1,113 @@
 
 .msg-item {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .avatar {
-  order: 1;
-  width: 85rpx;
-  height: 85rpx;
-  padding: 20rpx;
-  display: inline-block;
+    order: 1;
+    width: 85rpx;
+    height: 85rpx;
+    padding: 20rpx;
+    display: inline-block;
 }
 
 .message {
-  order: 3;
-  min-height: 100rpx;
-  max-width: 510rpx;
-  word-break: break-all;
-  padding: 20rpx;
-  margin-top: 15rpx;
-  border-radius: 10rpx;
-  background-color: #41d1ad;
+    order: 3;
+    min-height: 100rpx;
+    max-width: 510rpx;
+    word-break: break-all;
+    padding: 20rpx;
+    margin-top: 15rpx;
+    border-radius: 10rpx;
+    background-color: #41d1ad;
 }
 .triangle {
-  order: 2;
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-right: 12px solid #41d1ad;
-  margin-top: 42rpx;
-  width: 0;
-  height: 0;
+    order: 2;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 12px solid #41d1ad;
+    margin-top: 42rpx;
+    width: 0;
+    height: 0;
 
 }
 
 
 .msg-item.isme {
-  justify-content: flex-end;
+    justify-content: flex-end;
 }
 .msg-item.isme .avatar {
-  order: 3;
+    order: 3;
 }
 .msg-item.isme .message {
-  order: 1;
+    order: 1;
 }
 .msg-item.isme .triangle {
-  order: 2;
-  border-right: none;
-  border-left: 12px solid #41d1ad;
+    order: 2;
+    border-right: none;
+    border-left: 12px solid #41d1ad;
 }
 
 .elsePanel {}
 
-  .else-row{
-  }
-    .moreImage{}
+    .else-row{
+    }
+        .moreImage{}
 
 .wa-row {
-  display: flex;
-  height: 50px;
-  padding: 10rpx;
-  background-color: #fff;
+    display: flex;
+    height: 50px;
+    padding: 10rpx;
+    background-color: #fff;
 }
 
 .input-box {
-  flex: 1;
-  height: 80rpx;
-  padding: 10rpx;
-  border-bottom: 1px solid;
+    flex: 1;
+    height: 80rpx;
+    padding: 10rpx;
+    border-bottom: 1px solid;
 }
 .input-box input {
-  height: 50rpx;
-  line-height: 50rpx;
-  font-size: 14px;
+    height: 50rpx;
+    line-height: 50rpx;
+    font-size: 14px;
 }
 
 
 
 .icon{
-  vertical-align: middle;
-  margin-top: 8rpx;
-  width: 64rpx;
-  height: 64rpx;
+    vertical-align: middle;
+    margin-top: 8rpx;
+    width: 64rpx;
+    height: 64rpx;
 }
 .ion-ios-mic{
-  background-image:url('/media/voice.png');
-  background-size: 64rpx 64rpx;
-  background-repeat: no-repeat;
-  background-position: center center;
-  vertical-align: middle;
+    background-image:url('/media/voice.png');
+    background-size: 64rpx 64rpx;
+    background-repeat: no-repeat;
+    background-position: center center;
+    vertical-align: middle;
 }
 .ion-happy-outline {
-  background-image: url('/media/emotion-o.png');
-  background-size: 64rpx 64rpx;
-  background-repeat: no-repeat;
-  background-position: center center;
-  vertical-align: middle;
+    background-image: url('/media/emotion-o.png');
+    background-size: 64rpx 64rpx;
+    background-repeat: no-repeat;
+    background-position: center center;
+    vertical-align: middle;
 }
 .ion-ios-plus-outline {
-  background-image: url('/media/plus.png');
-  background-size: 64rpx 64rpx;
-  background-repeat: no-repeat;
-  background-position: center center;
-  vertical-align: middle;
+    background-image: url('/media/plus.png');
+    background-size: 64rpx 64rpx;
+    background-repeat: no-repeat;
+    background-position: center center;
+    vertical-align: middle;
 }
 .ion-ios-send {
-  background-image: url('/media/send.png');
-  background-size: 64rpx 64rpx;
-  background-repeat: no-repeat;
-  background-position: center center;
-  vertical-alin: middle;
+    background-image: url('/media/send.png');
+    background-size: 64rpx 64rpx;
+    background-repeat: no-repeat;
+    background-position: center center;
+    vertical-alin: middle;
 }

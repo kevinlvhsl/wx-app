@@ -1,20 +1,20 @@
 .section-search {
-  height: 100rpx;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  background-color:rgba(255, 255, 255, .7);
-  border: 1px solid #ddd;
+    height: 100rpx;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color:rgba(255, 255, 255, .7);
+    border: 1px solid #ddd;
 }
 .section-search .mv-search {
-  height: 100rpx;
-  line-height: 100rpx;
-  padding: 6rpx 0 6rpx 20rpx;
-  width: 85%;
+    height: 100rpx;
+    line-height: 100rpx;
+    padding: 6rpx 0 6rpx 20rpx;
+    width: 85%;
 }
 .section-search icon {
-  position: absolute;
-  top: 25rpx;
-  right: 25rpx;
-  z-index: 1
+    position: absolute;
+    top: 25rpx;
+    right: 25rpx;
+    z-index: 1
 }

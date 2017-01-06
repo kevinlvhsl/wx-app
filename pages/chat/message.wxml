@@ -1,71 +1,71 @@
 <template name="msgItem">
-  <view wx:for="{{contents}}" wx:key="item.id" style="display:inline-block;max-width:500rpx;">
-    <image wx:if="{{item.type=='image'}}" class="" style="width:21px;height:21px;vertical-align:middle;margin:0 3px;" src="{{item.url}}"></image>
-    <text wx:if="{{item.type=='text'}}" style="padding:0;margin:0;width:auto;">{{item.text}}</text>
-  </view>
+    <view wx:for="{{contents}}" wx:key="item.id" style="display:inline-block;max-width:500rpx;">
+        <image wx:if="{{item.type=='image'}}" class="" style="width:21px;height:21px;vertical-align:middle;margin:0 3px;" src="{{item.url}}"></image>
+        <text wx:if="{{item.type=='text'}}" style="padding:0;margin:0;width:auto;">{{item.text}}</text>
+    </view>
 </template>
 
 <scroll-view scroll-y="true" scroll-top="1000000000" bindtap="tapscroll" style="height:{{winHeight-50}}px;background:#eee" animation="{{animation_2}}">
-    <view wx:for="{{messages}}" wx:for-item="i" wx:key="i.id">
-        <!-- <view class="padding clearfix" wx:if="{{i.me}}">
+        <view wx:for="{{messages}}" wx:for-item="i" wx:key="i.id">
+                <!-- <view class="padding clearfix" wx:if="{{i.me}}">
 
-            <image class="right-Avatar padding_half" src="{{i.avatar}}"></image>
-            <view class="right-Triangle"></view>
-            <view class="right-message padding_half">
-            <template is="msgItem" data="{{...i}}"/>
-                <image wx:if="{{i.imgList}}" style="max-width:150px;max-height:120px" src="{{i.imgList}}"></image>
-                <map wx:if="{{i.map}}" style="width: 220px; height: 160px;"
-                    latitude="{{latitude}}"
-                    longitude="{{longitude}}"
-                    scale="16"
-                    markers="{{markers}}"
-                    covers="{{covers}}"
-                    >
-                </map>
-            </view>
+                        <image class="right-Avatar padding_half" src="{{i.avatar}}"></image>
+                        <view class="right-Triangle"></view>
+                        <view class="right-message padding_half">
+                        <template is="msgItem" data="{{...i}}"/>
+                                <image wx:if="{{i.imgList}}" style="max-width:150px;max-height:120px" src="{{i.imgList}}"></image>
+                                <map wx:if="{{i.map}}" style="width: 220px; height: 160px;"
+                                        latitude="{{latitude}}"
+                                        longitude="{{longitude}}"
+                                        scale="16"
+                                        markers="{{markers}}"
+                                        covers="{{covers}}"
+                                        >
+                                </map>
+                        </view>
+                </view>
+                <view class="padding clearfix" wx:if="{{!i.me}}">
+                        <image class="left-Avatar padding_half" src="{{i.avatar}}"></image>
+                        <view class="left-Triangle"></view>
+                        <view class="left-message padding_half">
+                                <template is="msgItem" data="{{...i}}"/>
+                        </view>
+                </view> -->
+                <view class="msg-item padding clearfix {{i.me ? 'isme' : ''}}">
+                        <image class="avatar padding_half" src="{{i.avatar}}"></image>
+                        <view class="triangle"></view>
+                        <view class="message padding_half">
+                                <template is="msgItem" data="{{...i}}"/>
+                        </view>
+                </view>
         </view>
-        <view class="padding clearfix" wx:if="{{!i.me}}">
-            <image class="left-Avatar padding_half" src="{{i.avatar}}"></image>
-            <view class="left-Triangle"></view>
-            <view class="left-message padding_half">
-                <template is="msgItem" data="{{...i}}"/>
-            </view>
-        </view> -->
-        <view class="msg-item padding clearfix {{i.me ? 'isme' : ''}}">
-            <image class="avatar padding_half" src="{{i.avatar}}"></image>
-            <view class="triangle"></view>
-            <view class="message padding_half">
-                <template is="msgItem" data="{{...i}}"/>
-            </view>
-        </view>
-    </view>
-    <view class="weui-icon_success"></view>
+        <view class="weui-icon_success"></view>
 </scroll-view>
 
 
 <view>
-  <view class="wa-row">
-    <view class="icon ion-ios-mic"></view>
-    <view class="input-box">
-      <input placeholder="请输入消息"
-        value="{{msg}}" bindinput="inputMsg"/>
+    <view class="wa-row">
+        <view class="icon ion-ios-mic"></view>
+        <view class="input-box">
+            <input placeholder="请输入消息"
+                value="{{msg}}" bindinput="inputMsg"/>
+        </view>
+        <view class="text-center icon ion-happy-outline" bindtap="emotionBtn"></view>
+        <view class="text-center icon {{ more }} text-center" style="margin-left: 5px;" bindtap="elseBtn"></view>
     </view>
-    <view class="text-center icon ion-happy-outline" bindtap="emotionBtn"></view>
-    <view class="text-center icon {{ more }} text-center" style="margin-left: 5px;" bindtap="elseBtn"></view>
-  </view>
 </view>
 
 <block>
-  <view id="elsePanel" wx:if="{{moreBox}}" animation="{{animation}}">
-    <view class="else-row">
-        <image class="moreImage" bindtap="chooseImg" src="/media/image.png"></image>
-        <image class="moreImage" bindtap="getlocat" src="/media/map.png"></image>
+    <view id="elsePanel" wx:if="{{moreBox}}" animation="{{animation}}">
+        <view class="else-row">
+                <image class="moreImage" bindtap="chooseImg" src="/media/image.png"></image>
+                <image class="moreImage" bindtap="getlocat" src="/media/map.png"></image>
+        </view>
     </view>
-  </view>
 </block>
 
 <block>
-  <view id="emotionPanel" wx:if="{{emotionBox}}" animation="{{animation}}">
-       <image wx:for="{{ emotions }}" wx:key="item.id" src="{{item.src}}" class="emotion" data-name="{{item.name}}" bindtap="chooseEmotion"></image>
+    <view id="emotionPanel" wx:if="{{emotionBox}}" animation="{{animation}}">
+             <image wx:for="{{ emotions }}" wx:key="item.id" src="{{item.src}}" class="emotion" data-name="{{item.name}}" bindtap="chooseEmotion"></image>
 </view>
 </block>

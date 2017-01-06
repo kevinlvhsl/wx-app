@@ -1,20 +1,20 @@
 .mov {
-  width: 33%;
-  text-align: center;
-  height: 340rpx;
+    width: 33%;
+    text-align: center;
+    height: 340rpx;
 }
 .mov image {
-  display: inline-block;
-  height: 280rpx;
-  width: 90%;
+    display: inline-block;
+    height: 280rpx;
+    width: 90%;
 }
 .mov text {
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 13px;
-  width: 200rpx;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 13px;
+    width: 200rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

@@ -2,23 +2,23 @@
 @import "../../templates/movieList.wxss";
 
 .had-srarch {
-  padding-top: 100rpx;
+    padding-top: 100rpx;
 }
 .ms-wrap {
-  display: flex;
-  flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .theater-title {
-  text-align: center;
-  height: 80rpx;
-  line-height: 80rpx;
-  color: #a4a9ae;
+    text-align: center;
+    height: 80rpx;
+    line-height: 80rpx;
+    color: #a4a9ae;
 }
 
 .no-more {
-  text-align: center;
-  font-size: 14px;
-  color: #ccc;
-  line-height: 80rpx;
+    text-align: center;
+    font-size: 14px;
+    color: #ccc;
+    line-height: 80rpx;
 }

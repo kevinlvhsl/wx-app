@@ -1,55 +1,55 @@
 {
-  "pages": [
-    "pages/chat/index",
-    "pages/chat/message",
-    "pages/test/test",
-    "pages/movie/movie",
-    "pages/movie/subject",
-    "pages/movie/search",
-    "pages/movie/celebrity",
-    "pages/index/index",
-    "pages/clock/clock",
-    "pages/belle/index",
-    "pages/logs/logs"
-  ],
-  "debug": false,
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#00be8f",
-    "navigationBarTitleText": "",
-    "navigationBarTextStyle":"#ffffff"
-  },
-  "tabBar": {
-    "list": [{
-      "iconPath": "media/navbar_un_2.png",
-      "selectedIconPath": "media/navbar_2.png",
-      "pagePath": "pages/index/index",
-      "text": "首页",
-      "selectedColor": "red"
-    }, {
-      "iconPath": "media/navbar_un_1.png",
-      "selectedIconPath": "media/navbar_1.png",
-      "pagePath": "pages/belle/index",
-      "text": "美女",
-      "selectedColor": "#FF5943"
-    },  {
-      "iconPath": "media/navbar_un_1.png",
-      "selectedIconPath": "media/navbar_1.png",
-      "pagePath": "pages/chat/index",
-      "text": "聊天",
-      "selectedColor": "#FF5943"
-    }, {
-      "iconPath": "media/navbar_un_4.png",
-      "selectedIconPath": "media/navbar_4.png",
-      "pagePath": "pages/clock/clock",
-      "text": "时间",
-      "selectedColor": "#FF5943"
-    }, {
-      "iconPath": "media/navbar_un_3.png",
-      "selectedIconPath": "media/navbar_3.png",
-      "pagePath": "pages/movie/movie",
-      "text": "电影",
-      "selectedColor": "blue"
-    }]
-  }
+    "pages": [
+        "pages/chat/index",
+        "pages/chat/message",
+        "pages/test/test",
+        "pages/movie/movie",
+        "pages/movie/subject",
+        "pages/movie/search",
+        "pages/movie/celebrity",
+        "pages/index/index",
+        "pages/clock/clock",
+        "pages/belle/index",
+        "pages/logs/logs"
+    ],
+    "debug": false,
+    "window":{
+        "backgroundTextStyle":"light",
+        "navigationBarBackgroundColor": "#00be8f",
+        "navigationBarTitleText": "",
+        "navigationBarTextStyle":"#ffffff"
+    },
+    "tabBar": {
+        "list": [{
+            "iconPath": "media/navbar_un_2.png",
+            "selectedIconPath": "media/navbar_2.png",
+            "pagePath": "pages/index/index",
+            "text": "首页",
+            "selectedColor": "red"
+        }, {
+            "iconPath": "media/navbar_un_1.png",
+            "selectedIconPath": "media/navbar_1.png",
+            "pagePath": "pages/belle/index",
+            "text": "美女",
+            "selectedColor": "#FF5943"
+        },  {
+            "iconPath": "media/navbar_un_1.png",
+            "selectedIconPath": "media/navbar_1.png",
+            "pagePath": "pages/chat/index",
+            "text": "聊天",
+            "selectedColor": "#FF5943"
+        }, {
+            "iconPath": "media/navbar_un_4.png",
+            "selectedIconPath": "media/navbar_4.png",
+            "pagePath": "pages/clock/clock",
+            "text": "时间",
+            "selectedColor": "#FF5943"
+        }, {
+            "iconPath": "media/navbar_un_3.png",
+            "selectedIconPath": "media/navbar_3.png",
+            "pagePath": "pages/movie/movie",
+            "text": "电影",
+            "selectedColor": "blue"
+        }]
+    }
 }
