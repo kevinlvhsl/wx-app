@@ -71,8 +71,8 @@ Page({
         // + cast
     },
     showStarDetail (e) {
-            console.log('star id:', e.currentTarget.dataset.id)
-            app.go('./celebrity', {id: e.currentTarget.dataset.id})
+        console.log('star id:', e.currentTarget.dataset.id)
+        app.go('./celebrity', {id: e.currentTarget.dataset.id})
     },
     onReady () {
 

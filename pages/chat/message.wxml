@@ -35,7 +35,17 @@
                     <image class="avatar padding_half" src="{{i.avatar}}"></image>
                     <view class="triangle"></view>
                     <view class="message padding_half">
-                            <template is="msgItem" data="{{...i}}"/>
+                            <template is="msgItem" data="{{...i}}">
+                                <!-- <image wx:if="{{i.imgList}}" style="max-width:150px;max-height:120px" src="{{i.imgList}}"></image>
+                                <map wx:if="{{i.map}}" style="width: 220px; height: 160px;"
+                                    latitude="{{latitude}}"
+                                    longitude="{{longitude}}"
+                                    scale="16"
+                                    markers="{{markers}}"
+                                    covers="{{covers}}"
+                                    >
+                                </map> -->
+                            </template>
                     </view>
             </view>
     </view>

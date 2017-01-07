@@ -75,7 +75,6 @@ Page({
         }
     },
     bindKeyInput: function(e) {
-        console.log('e:', e)
         this.setData({
             keyword: e.detail.value
         })

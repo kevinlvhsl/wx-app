@@ -49,7 +49,13 @@ App({
         if (getCurrentPages().length >= 5) {
             wx.redirectTo({url})
         } else {
-            wx.navigateTo({url})
+            wx.navigateTo({
+            url,
+            fail: (res) => {
+                debugger
+                console.error('navigateTo 错误', res)
+            }
+        })
         }
     },
 })

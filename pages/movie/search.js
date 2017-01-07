@@ -27,8 +27,7 @@ Page({
         this.searchMovie()
     },
     bindKeyInput: function(e) {
-            console.log('输入了', e.detail.value)
-
+        console.log('输入了', e.detail.value)
         this.setData({
             isNewLoad: true,
             keyword: e.detail.value,

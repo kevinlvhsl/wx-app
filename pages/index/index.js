@@ -84,13 +84,13 @@ Page({
                 this.setData({
                     scanpath: res.result
                 })
-                fetch(res.result).then(()=>{
-                    wx.showToast({
-                        title: '加载成功',
-                        icon: 'success_no_circle',
-                        duration: 5000
-                    })
-                })
+                // fetch(res.result).then(()=>{
+                //     wx.showToast({
+                //         title: '加载成功',
+                //         icon: 'success_no_circle',
+                //         duration: 5000
+                //     })
+                // })
             }
         })
     },
@@ -145,14 +145,15 @@ Page({
             }
         })
         const self = this
-        fetch('https://app.intv.com.cn/yao/feature-api-util/index/incr?key=wxapp&INTV_DEBUG=1').then((response)=>{
-            return response.json()
-        }).then((res)=>{
-            console.log('请求次数返回结果：', res)
-            this.setData({
-                count: res.data.wxapp
-            })
-        })
+        // fetch('https://app.intv.com.cn/yao/feature-api-util/index/incr?key=wxapp&INTV_DEBUG=1').then((response)=>{
+        //     return response.json()
+        // }).then((res)=>{
+        //     console.log('请求次数返回结果：', res)
+        //     this.setData({
+        //         count: res.data.wxapp
+        //     })
+        // })
+
         // wx.request({
         //   url: 'https://app.intv.com.cn/yao/feature-api-util/index/incr?key=wxapp&INTV_DEBUG=1', //仅为示例，并非真实的接口地址
         //   data: {

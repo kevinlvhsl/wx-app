@@ -1,7 +1,7 @@
 <view class="page-bg">
     <view class="info-box">
         <image src="{{star.avatars.large}}"></image>
-        <view class="introduce">
+        <view class="introduce" wx:if="{{star.id}}">
             <view>
                 <label>中文名</label>:
                 {{star.name}}
@@ -30,5 +30,6 @@
                 <text>作品名: {{work.subject.title}}</text>
             </view>
         </view>
+        <view class="no-info" wx:if="{{!star.id}}"> 暂无信息</view>
     </view>
 </view>

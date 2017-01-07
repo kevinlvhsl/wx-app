@@ -120,6 +120,7 @@ Page({
             sizeType: 'compressed',
             success: (res) => {
                 console.log(res)
+
             },
             complete: () => {
                 this.toggleScroll( () => {
