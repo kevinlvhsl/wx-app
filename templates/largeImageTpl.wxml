@@ -1,0 +1,9 @@
+<!-- 大图查看 -->
+<template name="largeImage">
+    <view class="large-wrap" wx:if="{{largeImg.src}}" animation="{{largeAnimation}}">
+        <image class="large-image" src="{{largeImg.src}}"style="height: {{largeImg.height}}px;"></image>
+        <view class="close-btn" bindtap="closePop">
+            <icon type="cancel" size="34" color="#949393"/>
+        </view>
+    </view>
+</template>

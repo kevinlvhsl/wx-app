@@ -1,3 +1,9 @@
+<template name="msgItem">
+    <view wx:for="{{contents}}" wx:key="item.id" style="display:inline-block;max-width:500rpx;">
+        <image wx:if="{{item.type=='image'}}" style="width:21px;height:21px;vertical-align:middle;margin:0 3px;" src="{{item.url}}"></image>
+        <text wx:if="{{item.type=='text'}}" style="padding:0;margin:0;width:auto;">{{item.text}}</text>
+    </view>
+</template>
 <scroll-view scroll-y="true">
     <view class="tips" wx:if="{{!list.length}}">
         正在载入聊天列表，请稍候...
@@ -7,20 +13,24 @@
         wx:for-item="i" wx:for-index="index"
         data-index="{{index}}"
         data-name="{{i.name}}"
-        data-id="{{i.id}}" bindtap="goPage">
-                    <view class="marks" wx:if="{{i.count}}">
-                        <text>{{i.count}}</text>
-                    </view>
-                    <image src="{{i.avatar}}"></image>
-                    <view class="item-right">
-                        <view class="title-box flex">
-                            <view class="title">{{i.name}}</view>
-                            <view class="item-time">{{i.updated}}</view>
-                        </view>
-                        <view class="message">
-                            <text class="messagetime">{{i.text}}</text>
-                        </view>
-                    </view>
+        data-id="{{i.id}}" bindtap="goPage"
+    >
+        <view class="marks" wx:if="{{i.count}}">
+            <text>{{i.count}}</text>
+        </view>
+        <image src="{{i.avatar}}"></image>
+        <view class="item-right">
+            <view class="title-box flex">
+                <view class="title">{{i.name}}</view>
+                <view class="item-time">{{i.updated}}</view>
+            </view>
+            <view class="message">
+                <template wx:if="{{i.type === 'text'}}" is="msgItem" data="{{...i}}"> </template>
+                <text wx:if="{{i.type === 'map'}}"> 发了一个位置 </text>
+                <image wx:if="{{i.type === 'image'}}"
+                    style="max-width:60px;max-height:60px;" src="{{i.text}}"></image>
+            </view>
+        </view>
     </view>
 
 </scroll-view>

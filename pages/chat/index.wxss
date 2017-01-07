@@ -33,5 +33,5 @@ image {
 }
 .message {
     font-size: 12px;
-    word-break:break-all;
+    word-break: break-all;
 }

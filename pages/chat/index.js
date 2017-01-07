@@ -1,6 +1,6 @@
 let app = getApp()
 
-import { formatTime } from '../../utils/util.js'
+import { formatTime, handleContent } from '../../utils/util.js'
 
 import socket from '../../utils/socket'
 
@@ -21,6 +21,15 @@ Page({
                 return
             data.rooms.forEach((room) => {
                 room.updated = formatTime(room.updated)
+                room.contents = handleContent(room.text)
+                if (room.text.indexOf('latitude') != -1) {
+                    room.type = 'map'
+                } else if (room.text.indexOf('wxfile://tmp_') != -1) {
+                    room.type = 'image'
+                } else {
+                    room.type = 'text'
+                }
+
             })
             if (data.cmd == 'CMD' && data.subCmd == 'ROOMS') {
                 this.setData({

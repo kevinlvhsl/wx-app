@@ -1,6 +1,7 @@
 const app = getApp()
 
 import socket from '../../utils/socket'
+import { handleContent } from '../../utils/util.js'
 
 Page({
     data: {
@@ -8,15 +9,20 @@ Page({
         msg: '',
         title: '聊天室',
         more: 'ion-ios-plus-outline',
-        winHeight: 0,
+        winHeight: 0,           // 窗口高度px
+        winWidth: 0,           // 窗口宽度px
         userInfo: {},
-        animation: {},
+        animation: {},          // 面板动画
         tap: 'OFF',             // ON:表示打开了下面的面板  OFF:没打开表情面板
         moreBox: false,         // 定位图片等功能面板是否显示
-        emotionBox: false,         // 表情功能面板是否显示
-        emotions: [],
-        position: {},
-        largeMapShow: false
+        emotionBox: false,      // 表情功能面板是否显示
+        emotions: [],           // 表情列表
+        position: {},           // 当前查看位置
+        largeMapShow: false,    // 是否显示大体地图
+        largeImg: {             // 大图查看
+            src: '',
+            height: 0
+        }
     },
     onReady(){
         // 页面渲染完成
@@ -31,7 +37,8 @@ Page({
         wx.getSystemInfo({
             success: (res) => {
                 this.setData({
-                    winHeight: res.windowHeight
+                    winHeight: res.windowHeight,
+                    winWidth: res.windowWidth
                 })
             }
         })
@@ -65,48 +72,52 @@ Page({
         socket.onMessage((data) => {
             let messages = this.data.messages
             data.me = data.peopleId === app.globalData.peopleId ? true : false
-            data.contents = []
             if (data.type === 'map') {
                 let obj = JSON.parse(data.content)
                 data.latitude = obj.latitude
                 data.longitude = obj.longitude
                 data.markers = obj.markers
             }
-            let t = ''
-            let lastToken = ''
-            // 遍历内容中是否有表情符号， 当前字符是否是 '[' 如果是，则寻找下一 ']' 中间的内容则匹配一个表情
-            for (let i = 0; i < data.content.length; i++) {
-                if (lastToken === '' && data.content[i] == '[') {
-                    if (t) {
-                        data.contents.push({
-                            type: 'text',
-                            text: t
-                        })
-                    }
-                    t = ''
-                    lastToken = '['
-                } else if (data.content[i] === ']' && lastToken === '[') { // 完整匹配了一个表情
-                    data.contents.push({
-                        type: 'image',
-                        url: `../../media/face-icons-flat/${t}.png`
-                    })
-                    t = ''
-                    lastToken = ''
-                } else { // 如果已经开始匹配表情符号，将当前字符内容临时保存在t中
-                    t += data.content[i]
-                }
-            }
-            if (t) { // 最后面
-                data.contents.push({
-                    type: 'text',
-                    text: t
-                })
-            }
+            data.contents = handleContent(data.content)
             messages.push(data)
             this.setData({
                 messages
             })
         })
+    },
+    handleContent (content) {
+        let contents = []
+        let t = ''
+        let lastToken = ''
+        // 遍历内容中是否有表情符号， 当前字符是否是 '[' 如果是，则寻找下一 ']' 中间的内容则匹配一个表情
+        for (let i = 0; i < content.length; i++) {
+            if (lastToken === '' && content[i] == '[') {
+                if (t) {
+                    contents.push({
+                        type: 'text',
+                        text: t
+                    })
+                }
+                t = ''
+                lastToken = '['
+            } else if (content[i] === ']' && lastToken === '[') { // 完整匹配了一个表情
+                contents.push({
+                    type: 'image',
+                    url: `../../media/face-icons-flat/${t}.png`
+                })
+                t = ''
+                lastToken = ''
+            } else { // 如果已经开始匹配表情符号，将当前字符内容临时保存在t中
+                t += content[i]
+            }
+        }
+        if (t) { // 最后面
+            contents.push({
+                type: 'text',
+                text: t
+            })
+        }
+        return contents
     },
     inputMsg (e) {
         let msg = e.detail.value.trim()
@@ -200,6 +211,36 @@ Page({
     closeLargeMap () {
         this.setData({
             largeMapShow: false
+        })
+    },
+    showLargeImage (e) {
+        let src = e.currentTarget.dataset.src
+        let height = e.currentTarget.dataset.height        //图片原始高度
+        let width = e.currentTarget.dataset.width          //图片原始宽度
+        let scale = this.data.winWidth / width             //比例计算
+        let currHeight = height * scale                    //自适应高度
+        this.setData({
+            largeImg: Object.assign(this.data.largeImg, {src, height: currHeight })
+        })
+        // this.setAnimate(true)
+    },
+    closePop () {
+        // this.setAnimate()
+        setTimeout(() => {
+            this.setData({
+                largeImg: Object.assign(this.data.largeImg, {src: '', height: 0 })
+            })
+        }, 1000)
+    },
+    setAnimate (enter) {
+        if (enter) {
+            console.log('animation::', this.animation)
+            this.animation.opacity(1).scale(1).step()
+        } else {
+            this.animation.opacity(0.5).scale(.7).step()
+        }
+        this.setData({
+            largeAnimation: this.animation.export()
         })
     },
     tapscroll () {

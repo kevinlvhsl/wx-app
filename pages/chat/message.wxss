@@ -100,9 +100,34 @@ page {
 .map-box .close {
     position: absolute;
     bottom: 0;
+    right: 0;
     z-index: 11;
-    background-color: rgba(255, 255, 255, .6);
-    border-radius: 12rpx;
+    padding: 10rpx;
+    background-color: transparent;
+}
+
+.large-wrap {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+.large-wrap .large-image {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.large-wrap .close-btn {
+    position: absolute;
+    z-index: 11;
+    top: 40rpx;
+    right: 40rpx;
 }
 
 .wa-row {
