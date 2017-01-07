@@ -14,7 +14,9 @@ Page({
         tap: 'OFF',             // ON:表示打开了下面的面板  OFF:没打开表情面板
         moreBox: false,         // 定位图片等功能面板是否显示
         emotionBox: false,         // 表情功能面板是否显示
-        emotions: []
+        emotions: [],
+        position: {},
+        largeMapShow: false
     },
     onReady(){
         // 页面渲染完成
@@ -64,6 +66,12 @@ Page({
             let messages = this.data.messages
             data.me = data.peopleId === app.globalData.peopleId ? true : false
             data.contents = []
+            if (data.type === 'map') {
+                let obj = JSON.parse(data.content)
+                data.latitude = obj.latitude
+                data.longitude = obj.longitude
+                data.markers = obj.markers
+            }
             let t = ''
             let lastToken = ''
             // 遍历内容中是否有表情符号， 当前字符是否是 '[' 如果是，则寻找下一 ']' 中间的内容则匹配一个表情
@@ -120,7 +128,19 @@ Page({
             sizeType: 'compressed',
             success: (res) => {
                 console.log(res)
-
+                // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+                var tempFilePaths = res.tempFilePaths;
+                // 发送一条图片信息
+                socket.sendMessage({
+                    cmd: 'MESSAGE',
+                    peopleId: app.globalData.peopleId,
+                    type: 'image',
+                    url: tempFilePaths[0],
+                    roomId: '1000',
+                    content: tempFilePaths[0],
+                    avatar: this.data.userInfo.avatarUrl || 'http://oh39r65yn.bkt.clouddn.com/5030aff5074dd.jpg',
+                    name: 'life'
+                })
             },
             complete: () => {
                 this.toggleScroll( () => {
@@ -133,7 +153,54 @@ Page({
         })
     },
     getlocat () {
-
+        wx.getLocation({
+          type: 'gcj02',
+          success : (res) => {
+              //维度
+            let latitude = res.latitude
+            //经度
+            let longitude = res.longitude
+            //速度
+            let speed = res.speed
+            //位置精度
+            let accuracy = res.accuracy
+            let markers = [{
+                width: 32,
+                height: 32,
+                latitude,
+                longitude,
+                iconPath: '../../media/pos.png'
+            }]
+            let mapObj = {
+                latitude,
+                longitude,
+                markers
+            }
+            let mapJson = JSON.stringify(mapObj)
+            socket.sendMessage({
+                cmd: 'MESSAGE',
+                peopleId: app.globalData.peopleId,
+                type: 'map',
+                roomId: '1000',
+                content: mapJson,
+                avatar: this.data.userInfo.avatarUrl || 'http://oh39r65yn.bkt.clouddn.com/5030aff5074dd.jpg',
+                name: 'life'
+            })
+            this.toggleScroll()
+          }
+        })
+    },
+    showLargeMap (e) {
+        let info = e.currentTarget.dataset.info
+        this.setData({
+            largeMapShow: true,
+            position: JSON.parse(info)
+        })
+    },
+    closeLargeMap () {
+        this.setData({
+            largeMapShow: false
+        })
     },
     tapscroll () {
         // 点击了聊天区，直接关闭下面的表情面板或定位面板

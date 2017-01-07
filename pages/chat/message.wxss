@@ -81,7 +81,29 @@ page {
     width: 60rpx;
     margin: 10rpx;
 }
-
+.map-box {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 110;
+    background-color: rgba(0, 0, 0, 0.6)
+}
+.map-box .map-wrap {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+}
+.map-box .close {
+    position: absolute;
+    bottom: 0;
+    z-index: 11;
+    background-color: rgba(255, 255, 255, .6);
+    border-radius: 12rpx;
+}
 
 .wa-row {
     display: flex;
