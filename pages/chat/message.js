@@ -9,7 +9,6 @@ Page({
         msg: '',
         title: '聊天室',
         more: 'ion-ios-plus-outline',
-        isVoice: true,
         winHeight: 0,           // 窗口高度px
         winWidth: 0,           // 窗口宽度px
         userInfo: {},
@@ -24,7 +23,8 @@ Page({
             src: '',
             height: 0
         },
-        voicePath: '',
+        isVoice: false,         // 是否显示录音输入
+        voicePath: '',          // 录音后的文件url
         recording: false        // 录音中
     },
     onReady(){
