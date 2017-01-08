@@ -161,11 +161,87 @@ page {
     border-radius: 14rpx;
     text-align: center;
     line-height: 64rpx;
-    margin: 4rpx 10rpx;
+    margin: 0 10rpx;
 }
 .voice-btn.keypress {
     background-color: rgba(221, 221, 221, .8);
 }
+.record-voice-pop {
+    position: fixed;
+    height: 400rpx;
+    width: 400rpx;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    margin: -200rpx 0 0 -200rpx;
+    border-radius: 30rpx;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.record-voice-pop .record-voice {
+    position: absolute;
+    top: 100rpx;
+    left: 50%;
+    margin-left: -50rpx;
+    width: 100rpx;
+    height: 144rpx;
+    animation: voice-play2 1s infinite steps(4, end);
+    background-image: url('/media/voice3.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 400rpx 144rpx;
+}
+.record-voice-pop .record-text {
+    position: absolute;
+    bottom: 20rpx;
+    left: 0;
+    width: 100%;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    color: #fff;
+}
+.msg-voice {
+    height: 40px;
+    width: 200px;
+    background-color: #48cc83;
+    text-align: center;
+    border-radius: 12rpx;
+}
+.play-voice-icon {
+    display: inline-block;
+    margin-left: -50rpx;
+    width: 30rpx;
+    height: 40rpx;
+    animation: voice-play 1s infinite steps(3, end);
+    background-image: url('../../media/voice2.png');
+    background-repeat: no-repeat;
+    background-position: 0 -80rpx;
+    background-size: 30rpx 12rpx;
+}
+
+/*声音录音动画*/
+@-webkit-keyframes voice-play2 {
+    100% {
+        background-position-x: -400rpx;
+    }
+}
+@keyframes voice-play2 {
+    100% {
+        background-position-x: -400rpx;
+    }
+}
+/*声音播放动画*/
+@-webkit-keyframes voice-play {
+    100% {
+        background-position-x: -400rpx;
+    }
+}
+@keyframes voice-play {
+    100% {
+        background-position-x: -400rpx;
+    }
+}
+
 
 .icon {
     vertical-align: middle;

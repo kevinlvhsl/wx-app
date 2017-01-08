@@ -16,6 +16,14 @@
                         <template wx:if="{{i.type === 'text'}}" is="msgItem" data="{{...i}}"> </template>
                         <image wx:if="{{i.type === 'image'}}" style="max-width:150px;max-height:120px"
                             src="{{i.content}}" data-src="{{i.content}}" bindtap="showLargeImage"></image>
+                            <!-- src="{{i.content}}" -->
+                        <view class="msg-voice"
+                            wx:if="{{i.type === 'voice'}}"
+                            bindtap="playVoice"
+                            data-src="{{i.content}}"
+                        >
+                            <view class="play-voice-icon" wx:if="{{voicePlaying}}"></view>
+                        </view>
                         <view data-info="{{i.content}}" bindtap="showLargeMap">
                             <map wx:if="{{i.type === 'map'}}" style="width: 200px; height: 150px;"
                                 latitude="{{i.latitude}}"
@@ -57,6 +65,11 @@
     <view class="close-btn" bindtap="closePop">
         <icon type="cancel" size="34" color="#949393"/>
     </view>
+</view>
+<!-- 录音动画弹层 -->
+<view class="record-voice-pop" wx:if="{{recording}}">
+    <view class="record-voice"></view>
+    <view class="record-text">松开完成</view>
 </view>
 <!--
     <import src="../../templates/largeImage.wxml"/>

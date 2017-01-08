@@ -25,7 +25,8 @@ Page({
         },
         isVoice: false,         // 是否显示录音输入
         voicePath: '',          // 录音后的文件url
-        recording: false        // 录音中
+        recording: false,       // 录音中
+        voicePlaying: false
     },
     onReady(){
         // 页面渲染完成
@@ -348,7 +349,16 @@ Page({
                 this.setData({
                     voicePath: tempFilePath
                 })
-
+                socket.sendMessage({
+                    cmd: 'MESSAGE',
+                    peopleId: app.globalData.peopleId,
+                    type: 'voice',
+                    url: tempFilePath,
+                    roomId: '1000',
+                    content: tempFilePath,
+                    avatar: this.data.userInfo.avatarUrl || 'http://oh39r65yn.bkt.clouddn.com/5030aff5074dd.jpg',
+                    name: 'life'
+                })
             },
             fail: (res) => {
                 //录音失败
@@ -363,8 +373,34 @@ Page({
     endRecord () {
         wx.stopRecord()
         this.setData({recording: false})
+    },
+    playVoice (e) {
+        let path = e.currentTarget.dataset.src
+        // wx.showToast({
+        //     title: path,
+        //     icon: 'waiting_circle',
+        //     duration: 4000
+        // })
+        if (this.data.voicePlaying) {
+            this.stopVoice()
+            return
+        }
+        this.setData({
+            voicePlaying: true
+        })
+        wx.playVoice({
+          filePath: path,
+          complete: () => {
+            this.stopVoice()
+          }
+        })
+    },
+    stopVoice() {
+        wx.stopVoice()
+        this.setData({
+            voicePlaying: false
+        })
     }
-
 
 
 })
