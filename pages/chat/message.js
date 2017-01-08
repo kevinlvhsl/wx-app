@@ -9,6 +9,7 @@ Page({
         msg: '',
         title: '聊天室',
         more: 'ion-ios-plus-outline',
+        isVoice: true,
         winHeight: 0,           // 窗口高度px
         winWidth: 0,           // 窗口宽度px
         userInfo: {},
@@ -22,7 +23,9 @@ Page({
         largeImg: {             // 大图查看
             src: '',
             height: 0
-        }
+        },
+        voicePath: '',
+        recording: false        // 录音中
     },
     onReady(){
         // 页面渲染完成
@@ -83,6 +86,12 @@ Page({
             this.setData({
                 messages
             })
+        })
+    },
+    switchType () {
+        let type = this.data.isVoice
+        this.setData({
+            isVoice: !type
         })
     },
     handleContent (content) {
@@ -327,5 +336,35 @@ Page({
                 })
             }
         }
+    },
+    startRecord () {
+        console.log('开始录音')
+        this.setData({recording: true})
+        wx.startRecord({
+            success: (res) => {
+                var tempFilePath = res.tempFilePath
+                console.log(tempFilePath)
+                console.log('录音成功')
+                this.setData({
+                    voicePath: tempFilePath
+                })
+
+            },
+            fail: (res) => {
+                //录音失败
+            }
+        })
+        setTimeout(() => {
+            //结束录音
+            console.log('结束录音')
+            this.endRecord()
+        }, 10000)
+    },
+    endRecord () {
+        wx.stopRecord()
+        this.setData({recording: false})
     }
+
+
+
 })

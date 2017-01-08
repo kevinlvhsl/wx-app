@@ -132,16 +132,22 @@ page {
 
 .wa-row {
     display: flex;
+    align-items: center;
     height: 50px;
     padding: 10rpx;
     background-color: #fff;
 }
 
-.input-box {
+.input-box , .voice-box {
     flex: 1;
     height: 80rpx;
-    padding: 10rpx;
-    border-bottom: 1px solid;
+    padding: 15rpx;
+    margin: 4rpx 12rpx;
+    border-bottom: 1px solid #4a4949;
+}
+.voice-box {
+    padding: 10rpx 20rpx;
+    border: none;
 }
 .input-box input {
     height: 50rpx;
@@ -149,16 +155,33 @@ page {
     font-size: 14px;
 }
 
+.voice-box .voice-btn {
+    color: #4a4949;
+    border: 1px solid #4a4949;
+    border-radius: 14rpx;
+    text-align: center;
+    line-height: 64rpx;
+    margin: 4rpx 10rpx;
+}
+.voice-btn.keypress {
+    background-color: rgba(221, 221, 221, .8);
+}
 
-
-.icon{
+.icon {
     vertical-align: middle;
     margin-top: 8rpx;
     width: 64rpx;
     height: 64rpx;
 }
-.ion-ios-mic{
+.ion-ios-mic {
     background-image:url('/media/voice.png');
+    background-size: 64rpx 64rpx;
+    background-repeat: no-repeat;
+    background-position: center center;
+    vertical-align: middle;
+}
+.ion-ios-input {
+    background-image:url('/media/keyboard.png');
     background-size: 64rpx 64rpx;
     background-repeat: no-repeat;
     background-position: center center;
