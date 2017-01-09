@@ -30,7 +30,7 @@
             "iconPath": "media/navbar_un_1.png",
             "selectedIconPath": "media/navbar_1.png",
             "pagePath": "pages/belle/index",
-            "text": "美女",
+            "text": "图片",
             "selectedColor": "#FF5943"
         },  {
             "iconPath": "media/navbar_un_1.png",
@@ -39,17 +39,17 @@
             "text": "聊天",
             "selectedColor": "#FF5943"
         }, {
-            "iconPath": "media/navbar_un_4.png",
-            "selectedIconPath": "media/navbar_4.png",
-            "pagePath": "pages/clock/clock",
-            "text": "时间",
-            "selectedColor": "#FF5943"
-        }, {
             "iconPath": "media/navbar_un_3.png",
             "selectedIconPath": "media/navbar_3.png",
             "pagePath": "pages/movie/movie",
             "text": "电影",
             "selectedColor": "blue"
+        }, {
+            "iconPath": "media/navbar_un_4.png",
+            "selectedIconPath": "media/navbar_4.png",
+            "pagePath": "pages/clock/clock",
+            "text": "时间",
+            "selectedColor": "#FF5943"
         }]
     }
 }

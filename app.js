@@ -44,15 +44,25 @@ App({
             })
         }
     },
-    go(path, params) {
+    go(path, params, cb) {
         const url = path + '?' + Object.keys(params).map(k=>k + '=' + params[k])
         if (getCurrentPages().length >= 5) {
-            wx.redirectTo({url})
+            wx.redirectTo({
+                url,
+                success: () => {
+                    cb && cb()
+                },
+                fail: (res) => {
+                    console.error('redirectTo 错误', res)
+                }
+            })
         } else {
             wx.navigateTo({
             url,
+            success: () => {
+                cb && cb()
+            },
             fail: (res) => {
-                debugger
                 console.error('navigateTo 错误', res)
             }
         })

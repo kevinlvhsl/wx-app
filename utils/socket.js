@@ -37,9 +37,9 @@ class Socket {
         wx.onSocketClose((res) => {
             console.log('WebSocket 已关闭！')
             this.connected = false
-            wx.connectSocket({
-                url: this.host
-            })
+            // wx.connectSocket({
+            //     url: this.host
+            // })
         })
 
     }

@@ -53,5 +53,8 @@ Page({
             name: ds.name,
             id: ds.id
         })
+    },
+    onUnLoad () {
+        wx.closeSocket()
     }
 })
