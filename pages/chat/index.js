@@ -15,6 +15,7 @@ Page({
         list: []
     },
     onLoad () {
+        api.getToken()
         socket.onMessage((data) => {
             console.log('收到的消息：', data)
             if (data.cmd != 'CMD' || data.subCmd != 'ROOMS')
@@ -55,6 +56,6 @@ Page({
         })
     },
     onUnLoad () {
-        wx.closeSocket()
+        // wx.closeSocket()
     }
 })

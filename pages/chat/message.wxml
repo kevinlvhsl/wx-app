@@ -7,9 +7,10 @@
 </template>
 
 <scroll-view scroll-y="true" scroll-top="1000000000" bindtap="tapscroll" style="height:{{winHeight-50}}px;background:#eee" animation="{{animation}}">
-    <view wx:for="{{messages}}" wx:for-item="i" wx:key="i.id">
+    <view wx:for="{{messages}}" wx:for-item="i" wx:key="i.id" wx:for-index="index">
         <!-- 单条信息 -->
         <view class="msg-item padding clearfix {{i.me ? 'isme' : ''}}">
+                <view wx:if="{{i.second > 0}}" class="play-voice-second">{{i.second}}"</view>
                 <image class="avatar padding_half" src="{{i.avatar}}"></image>
                 <view class="triangle"></view>
                 <view class="message padding_half">
@@ -20,9 +21,11 @@
                         <view class="msg-voice"
                             wx:if="{{i.type === 'voice'}}"
                             bindtap="playVoice"
+                            style="width: {{50 + i.second * 2}}px;"
+                            data-index="{{index}}"
                             data-src="{{i.content}}"
                         >
-                            <view class="play-voice-icon" wx:if="{{voicePlaying}}"></view>
+                            <view class="play-voice-icon {{i.voicePlaying ? 'play': ''}}"></view>
                         </view>
                         <view data-info="{{i.content}}" bindtap="showLargeMap">
                             <map wx:if="{{i.type === 'map'}}" style="width: 200px; height: 150px;"
@@ -68,8 +71,9 @@
 </view>
 <!-- 录音动画弹层 -->
 <view class="record-voice-pop" wx:if="{{recording}}">
+    <view class="record-second">{{voiceSecond}}"</view>
     <view class="record-voice"></view>
-    <view class="record-text">松开完成</view>
+    <view class="record-text">点击按钮完成</view>
 </view>
 <!--
     <import src="../../templates/largeImage.wxml"/>
@@ -78,8 +82,10 @@
 <view>
     <view class="wa-row">
         <view style="display:inline-block" bindtap="switchType">
-            <view wx:if="{{!isVoice}}" class="icon ion-ios-mic"></view>
-            <view wx:if="{{isVoice}}" class="icon ion-ios-input"></view>
+            <!-- <view wx:if="{{!isVoice}}" class="icon ion-ios-mic"></view>
+            <view wx:if="{{isVoice}}" class="icon ion-ios-input"></view> -->
+            <image wx:if="{{isVoice}}"  class="icon" src="/media/keyboard.png"></image>
+            <image wx:if="{{!isVoice}}" class="icon" src="/media/voice.png"></image>
         </view>
 
         <view class="input-box"  wx:if="{{!isVoice}}">
@@ -88,16 +94,23 @@
         </view>
         <view class="voice-box" wx:if="{{isVoice}}">
             <view class="voice-btn {{ recording ? 'keypress': ''}}"
-                bindtouchstart="startRecord"
+                bindtap="startRecord"
+            >
+                <!-- bindtouchstart="startRecord"
                 bindtouchmove=""
                 bindtouchcancel=""
-                bindtouchend="endRecord"
-            >
-                <text>{{ recording ? '松开发送': '按下说话'}}</text>
+                bindtouchend="endRecord" -->
+                <!-- <text>{{ recording ? '松开发送': '按下说话'}}</text> -->
+                <text>{{ recording ? '点击结束': '点击录语音'}}</text>
             </view>
         </view>
-        <view class="text-center icon ion-happy-outline" bindtap="emotionBtn"></view>
-        <view class="text-center icon {{ more }} text-center" style="margin-left: 5px;" bindtap="elseBtn"></view>
+        <!-- <view class="text-center icon ion-happy-outline" bindtap="emotionBtn"></view>
+        <view class="text-center icon {{ more }} text-center" style="margin-left: 5px;" bindtap="elseBtn"></view> -->
+        <image bindtap="emotionBtn" class="icon" src="/media/emotion-o.png"></image>
+        <image wx:if="{{more}}" bindtap="elseBtn"
+            class="icon" style="margin-left: 5px;" src="/media/plus.png"></image>
+        <image wx:if="{{!more}}" bindtap="sendBtn"
+            class="icon" style="margin-left: 5px;" src="/media/send.png"></image>
     </view>
 </view>
 <!-- 图片 -->

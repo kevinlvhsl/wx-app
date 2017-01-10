@@ -1,5 +1,25 @@
 const HOST = 'https://api.douban.com'
 export default {
+    getToken (cb) {
+        let now = Date.now() / 1000
+        var tokenInfo = wx.getStorageSync('ACCESS_TOKEN_INFO') || {}
+        debugger
+        // 如果已有token并且未失效
+        if (tokenInfo.access_token && tokenInfo.expires_in > now) {
+            cb && cb(tokenInfo.access_token)
+        } else {
+            let APPID = 'wx7f34ed77698751ef',
+            APPSECRET = '0546e69e53d9c06877ddeae4a8749e2c'
+            wx.request({
+                url: `https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${APPID}&secret=${APPSECRET}`,
+                success: (res) => {
+                    console.log('获取token：：：', res)
+                    wx.setStorageSync('ACCESS_TOKEN_INFO', res)
+                    cb && cb(res.access_token)
+                }
+            })
+        }
+    },
     searchMovie (keyword, start = 0, success) {
         wx.request({
             url: HOST + '/v2/movie/search',

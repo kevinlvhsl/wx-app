@@ -20,36 +20,32 @@
         "navigationBarTextStyle":"#ffffff"
     },
     "tabBar": {
+        "selectedColor": "#FD506C",
         "list": [{
-            "iconPath": "media/navbar_un_2.png",
-            "selectedIconPath": "media/navbar_2.png",
+            "iconPath": "media/main.png",
+            "selectedIconPath": "media/main_2.png",
             "pagePath": "pages/index/index",
-            "text": "首页",
-            "selectedColor": "red"
+            "text": "首页"
         }, {
-            "iconPath": "media/navbar_un_1.png",
-            "selectedIconPath": "media/navbar_1.png",
+            "iconPath": "media/pic.png",
+            "selectedIconPath": "media/pic_2.png",
             "pagePath": "pages/belle/index",
-            "text": "图片",
-            "selectedColor": "#FF5943"
+            "text": "图片"
         },  {
-            "iconPath": "media/navbar_un_1.png",
-            "selectedIconPath": "media/navbar_1.png",
+            "iconPath": "media/talk.png",
+            "selectedIconPath": "media/talk_2.png",
             "pagePath": "pages/chat/index",
-            "text": "聊天",
-            "selectedColor": "#FF5943"
+            "text": "聊天"
         }, {
-            "iconPath": "media/navbar_un_3.png",
-            "selectedIconPath": "media/navbar_3.png",
+            "iconPath": "media/video.png",
+            "selectedIconPath": "media/video_2.png",
             "pagePath": "pages/movie/movie",
-            "text": "电影",
-            "selectedColor": "blue"
+            "text": "电影"
         }, {
-            "iconPath": "media/navbar_un_4.png",
-            "selectedIconPath": "media/navbar_4.png",
+            "iconPath": "media/time.png",
+            "selectedIconPath": "media/time_2.png",
             "pagePath": "pages/clock/clock",
-            "text": "时间",
-            "selectedColor": "#FF5943"
+            "text": "时间"
         }]
     }
 }

@@ -3,12 +3,14 @@ const app = getApp()
 import socket from '../../utils/socket'
 import { handleContent } from '../../utils/util.js'
 
+let timer = null
+
 Page({
     data: {
         messages: [],
         msg: '',
         title: '聊天室',
-        more: 'ion-ios-plus-outline',
+        more: true,             // 是否展示更多（true: 加号， false: 发送）
         winHeight: 0,           // 窗口高度px
         winWidth: 0,           // 窗口宽度px
         userInfo: {},
@@ -26,7 +28,8 @@ Page({
         isVoice: false,         // 是否显示录音输入
         voicePath: '',          // 录音后的文件url
         recording: false,       // 录音中
-        voicePlaying: false
+        voicePlaying: false,
+        voiceSecond: 0
     },
     onReady(){
         // 页面渲染完成
@@ -82,6 +85,11 @@ Page({
                 data.longitude = obj.longitude
                 data.markers = obj.markers
             }
+            if (data.type === 'voice') {
+                let content = data.content
+                data.second = content.split(',')[0]
+                data.content = content.split(',')[1]
+            }
             data.contents = handleContent(data.content)
             messages.push(data)
             this.setData({
@@ -133,14 +141,14 @@ Page({
         let msg = e.detail.value.trim()
         this.setData({
             msg,
-            more: (msg) ? 'ion-ios-send' : 'ion-ios-plus-outline'
+            more: !msg
         })
     },
     chooseEmotion (e) {
         let name = e.currentTarget.dataset.name
         this.setData({
             msg: `${this.data.msg}[${name}]`,
-            more: 'ion-ios-send'
+            more: false
         })
     },
     chooseImg () {
@@ -285,6 +293,9 @@ Page({
     },
     emotionBtn () {
         // 如果当前是图片面板打开 且 表情面板没打开 则直接切换为表情
+        this.setData({
+            isVoice: false
+        })
         if (!this.data.emotionBox && this.data.moreBox) {
             this.setData({
                 emotionBox: true,
@@ -299,9 +310,8 @@ Page({
             })
         }
     },
-    elseBtn () {
-        if (this.data.more === 'ion-ios-send') { // 点击了 发送 图标
-            socket.sendMessage({
+    sendBtn () {
+        socket.sendMessage({
                 cmd: 'MESSAGE',
                 peopleId: app.globalData.peopleId,
                 type: 'text',
@@ -313,7 +323,7 @@ Page({
             console.log('发送成功：', this.data.msg)
             this.setData({
                 msg: '',
-                more: 'ion-ios-plus-outline',
+                more: true,
                 moreBox: false,
                 emotionBox: false
             })
@@ -321,26 +331,73 @@ Page({
             if (this.data.tap === 'ON') {
                 this.toggleScroll()
             }
-        } else { // 点击了 + 号图标
-            // 如果当前是表情面板打开 且 图片面板没打开 则直接切换为图片面板
-            if (this.data.emotionBox && !this.data.moreBox) {
+    },
+    elseBtn () {
+        this.setData({
+            isVoice: false
+        })
+        // 如果当前是表情面板打开 且 图片面板没打开 则直接切换为图片面板
+        if (this.data.emotionBox && !this.data.moreBox) {
+            this.setData({
+                emotionBox: false,
+                moreBox: true
+            })
+        } else {
+            this.toggleScroll((flag)=>{
                 this.setData({
                     emotionBox: false,
-                    moreBox: true
+                    moreBox: flag
                 })
-            } else {
-                this.toggleScroll((flag)=>{
-                    this.setData({
-                        emotionBox: false,
-                        moreBox: flag
-                    })
-                })
-            }
+            })
         }
+        // if (this.data.more === 'ion-ios-send') { // 点击了 发送 图标
+        //     socket.sendMessage({
+        //         cmd: 'MESSAGE',
+        //         peopleId: app.globalData.peopleId,
+        //         type: 'text',
+        //         roomId: '1000',
+        //         content: this.data.msg,
+        //         avatar: this.data.userInfo.avatarUrl || 'http://oh39r65yn.bkt.clouddn.com/5030aff5074dd.jpg',
+        //         name: 'life'
+        //     })
+        //     console.log('发送成功：', this.data.msg)
+        //     this.setData({
+        //         msg: '',
+        //         more: true,
+        //         moreBox: false,
+        //         emotionBox: false
+        //     })
+        //     // 如果当前是有面板打开 则关闭
+        //     if (this.data.tap === 'ON') {
+        //         this.toggleScroll()
+        //     }
+        // } else { // 点击了 + 号图标
+        //     // 如果当前是表情面板打开 且 图片面板没打开 则直接切换为图片面板
+        //     if (this.data.emotionBox && !this.data.moreBox) {
+        //         this.setData({
+        //             emotionBox: false,
+        //             moreBox: true
+        //         })
+        //     } else {
+        //         this.toggleScroll((flag)=>{
+        //             this.setData({
+        //                 emotionBox: false,
+        //                 moreBox: flag
+        //             })
+        //         })
+        //     }
+        // }
     },
     startRecord () {
         console.log('开始录音')
-        this.setData({recording: true})
+        if (this.data.recording) {
+            this.endRecord()
+            return
+        }
+        this.setData({
+            recording: true,
+            voiceSecond: 0
+        })
         wx.startRecord({
             success: (res) => {
                 var tempFilePath = res.tempFilePath
@@ -349,44 +406,61 @@ Page({
                 this.setData({
                     voicePath: tempFilePath
                 })
+                let second = this.data.voiceSecond
                 socket.sendMessage({
                     cmd: 'MESSAGE',
                     peopleId: app.globalData.peopleId,
                     type: 'voice',
                     url: tempFilePath,
                     roomId: '1000',
-                    content: tempFilePath,
+                    content: second + ',' + tempFilePath,
                     avatar: this.data.userInfo.avatarUrl || 'http://oh39r65yn.bkt.clouddn.com/5030aff5074dd.jpg',
                     name: 'life'
                 })
             },
             fail: (res) => {
+                this.endRecord()
                 //录音失败
             }
         })
-        setTimeout(() => {
-            //结束录音
-            console.log('结束录音')
-            this.endRecord()
-        }, 10000)
+        timer = setInterval(() => {
+            if (this.data.recording) {
+                let s = this.data.voiceSecond
+                this.setData({
+                    voiceSecond: ++s
+                })
+                if (s>= 60) {
+                    console.log('自动结束录音')
+                    this.endRecord()
+                }
+            } else {
+                this.endRecord()
+            }
+        }, 1000)
     },
     endRecord () {
+        console.log('结束录音')
         wx.stopRecord()
         this.setData({recording: false})
+        clearInterval(timer)
     },
     playVoice (e) {
         let path = e.currentTarget.dataset.src
+        let index = e.currentTarget.dataset.index
         // wx.showToast({
         //     title: path,
         //     icon: 'waiting_circle',
         //     duration: 4000
         // })
-        if (this.data.voicePlaying) {
+        if (this.data.messages[index].voicePlaying) {
             this.stopVoice()
             return
         }
+        let item = this.data.messages[index]
+        item.voicePlaying = true
+        this.data.messages[index] = item
         this.setData({
-            voicePlaying: true
+            messages: this.data.messages
         })
         wx.playVoice({
           filePath: path,
@@ -397,8 +471,12 @@ Page({
     },
     stopVoice() {
         wx.stopVoice()
+        this.data.messages.forEach((item, index) => {
+            item.voicePlaying = false
+            this.data.messages[index] = item
+        })
         this.setData({
-            voicePlaying: false
+            messages: this.data.messages
         })
     }
 
