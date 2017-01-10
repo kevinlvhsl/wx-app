@@ -6,28 +6,21 @@ let loading = false;  //限制连续上拉加载
 
 const baseOption = {
     transformOrigin: "50% 50%",
-    duration: 800,
+    duration: 500,
     timingFunction: "ease",
     delay: 10
 }
-// 标记手指滑动开始和结束坐标
-let startX = 0
-let endX = 0
 
 Page({
     data: {
         scrollH: 0,
         miniWidth: 0,
         loadingCount: 0,
-        images: [],
+        images: [],                 // 缓冲图列表
         col1: [],
         col2: [],
         col3: [],
         page: 1,
-        // largeImg: {
-        //     src: '',
-        //     height: 0
-        // },
         largeAnimation: {},
         imgAnimations: {},
         currentCols: [],
@@ -70,77 +63,8 @@ Page({
             currentIndex: e.detail.current
         })
     },
-    // showLargeImage2 (e) {
-    //     let index = e.currentTarget.dataset.index
-    //     let col = e.currentTarget.dataset.col
-    //     // 标记当前点击的是哪一列
-    //     this.setData({
-    //         currentCol: col,
-    //         currentIndex: index
-    //     })
-    //     let currImg = this.getItemsData(col, index)
-    //     this.makeLargeImage(currImg)
-    //     this.setAnimate(true)
-    // },
-    // makeLargeImage (imgInfo) {
-    //     let src = imgInfo.img
-    //     let h = imgInfo.oH              //图片原始高度
-    //     let w = imgInfo.oW              //图片原始宽度
-    //     let scale = ww / w              //比例计算
-    //     let currHeight = h * scale      //自适应高度
-    //     this.setData({
-    //         largeImg: Object.assign(this.data.largeImg, {src, height: currHeight })
-    //     })
-    // },
-    // getItemsData (col, index) {
-    //     let items = this.data['col' + col]
-    //     return items[index]
-    // },
-    // touchStart (e) {
-    //     console.log('start:', e)
-    //     startX = e.touches[0].pageX
-    // },
-    // touchMove (e) {
-    //     console.log('move:', e)
-    //     endX = e.touches[0].pageX
-    // },
-    // touchEnd (e) {
-    //     console.log('end:', e)
-    //     endX = e.changedTouches[0].pageX
-    //     let deltaX = startX - endX
-    //     if (Math.abs(deltaX) > 20) {
-    //         // 向右滑动 index--
-    //         if (deltaX < 0) {
-    //             if (this.data.currentIndex > 0) {
-    //                 let prevIndex = this.data.currentIndex - 1
-    //                 let curImg = this.getItemsData(this.data.currentCol, prevIndex)
-    //                 this.setData({
-    //                     currentIndex: prevIndex
-    //                 })
-    //                 this.makeLargeImage(curImg)
-    //             }
-    //         } else {
-    //             // 向←左滑动 index++
-    //             let curCol = this.data['col' + this.data.currentCol]
-    //             if (this.data.currentIndex < curCol.length - 1 ) {
-    //                 let nextIndex = this.data.currentIndex + 1
-    //                 let curImg = this.getItemsData(this.data.currentCol, nextIndex)
-    //                 this.setData({
-    //                     currentIndex: nextIndex
-    //                 })
-    //                 this.makeLargeImage(curImg)
-    //             }
-
-    //         }
-    //     }
-    // },
     closePop () {
         this.setAnimate()
-        // setTimeout(() => {
-        //     this.setData({
-        //         largeImg: Object.assign(this.data.largeImg, {src: '', height: 0 })
-        //     })
-        // }, 1000)
     },
     setAnimate (enter) {
         if (enter) {
@@ -152,7 +76,7 @@ Page({
                 this.setData({
                     currentCols: []
                 })
-            }, 800)
+            }, 500)
         }
         this.setData({
             largeAnimation: this.animation.export()
@@ -164,7 +88,7 @@ Page({
                                     .opacity(.5)
                                     // .translateY('-50%')
                                     .skew(0, 0)
-                                    .step({ duration: 1000 })
+                                    .step({ duration: 500 })
         this.setData({ largeAnimation: this.animation.export() })
     },
     onImageLoad: function (e) {
@@ -193,6 +117,7 @@ Page({
             imageObj.largeH = largeHeight;
             imageObj.oW = oImgW
             imageObj.oH = oImgH
+            // 是否是竖图
             if (imageObj.oH > imageObj.oW) {
                 imageObj.vertical = true
             }

@@ -43,8 +43,8 @@
 }
 .posit {
     position: absolute;
-    top: 20rpx;
-    left: 20rpx;
+    bottom: 20rpx;
+    right: 20rpx;
     font-size: 13px;
     color: #FD506C;
     z-index: 1;
