@@ -2,8 +2,33 @@
 <view style="display:none">
     <image wx:for="{{images}}" wx:for-item="image" wx:key="{{image.id}}" id="{{image.id}}" src="{{image.img}}" bindload="onImageLoad"></image>
 </view>
-<view class="large-wrap" wx:if="{{largeImg.src}}" animation="{{largeAnimation}}">
+<!-- <view class="large-wrap"
+    wx:if="{{largeImg.src}}"
+    animation="{{largeAnimation}}"
+    bindtouchstart="touchStart"
+    bindtouchmove="touchMove"
+    bindtouchend="touchEnd"
+    >
+    <view class="posit">第{{currentCol}}列-第{{currentIndex + 1}}张</view>
     <image class="large-image" src="{{largeImg.src}}"style="height: {{largeImg.height}}px;"></image>
+    <view class="close-btn" bindtap="closePop">
+        <icon type="cancel" size="34" color="#949393"/>
+    </view>
+</view> -->
+<view class="large-wrap"
+    wx:if="{{currentCols.length}}"
+    animation="{{largeAnimation}}"
+>
+    <view class="posit">第{{currentCol}}列-第{{currentIndex + 1}}张</view>
+    <!-- <image class="large-image" src="{{largeImg.src}}"style="height: {{largeImg.height}}px;"></image> -->
+    <swiper class="swipers" bindchange="changeImgIndex" current="{{currentIndex}}">
+        <view wx:for="{{currentCols}}" wx:key="item">
+            <swiper-item>
+                <image src="{{item.img}}" class="large-image"
+                    style="height: {{ item.vertical ? '100%' : item.largeH + 'px'}}"/>
+            </swiper-item>
+        </view>
+    </swiper>
     <view class="close-btn" bindtap="closePop">
         <icon type="cancel" size="34" color="#949393"/>
     </view>
@@ -12,10 +37,12 @@
 <template name="belleImage">
     <image
         src="{{item.img}}"
-        style="width:100%;height:{{item.height}}px"
+        style="width:100%;height:{{item.miniH}}px"
         data-src="{{item.img}}"
         data-width="{{item.oW}}"
         data-height="{{item.oH}}"
+        data-col="{{col}}"
+        data-index="{{index}}"
         bindtap="showLargeImage"
     ></image>
 </template>
@@ -24,17 +51,17 @@
     <view style="width:100%">
         <view class="img-item">
             <view class="img-col" wx:for="{{col1}}"  wx:for-item="img" wx:key="{{img.id}}" animation="{{imgAnimations[img.id]}}">
-                <template is="belleImage" data="{{item:img}}"></template>
+                <template is="belleImage" data="{{item:img,index, col:1}}"></template>
             </view>
         </view>
         <view class="img-item">
             <view class="img-col"  wx:for="{{col2}}" wx:for-item="img" wx:key="{{img.id}}" animation="{{imgAnimations[img.id]}}">
-                <template is="belleImage" data="{{item:img}}"></template>
+                <template is="belleImage" data="{{item:img,index, col:2}}"></template>
             </view>
         </view>
         <view class="img-item">
             <view class="img-col"  wx:for="{{col3}}"  wx:for-item="img" wx:key="{{img.id}}" animation="{{imgAnimations[img.id]}}">
-                <template is="belleImage" data="{{item:img}}"></template>
+                <template is="belleImage" data="{{item:img,index, col:3}}"></template>
             </view>
         </view>
     </view>

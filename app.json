@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/belle/index",
         "pages/index/index",
         "pages/chat/index",
         "pages/chat/message",
@@ -9,7 +10,6 @@
         "pages/movie/search",
         "pages/movie/celebrity",
         "pages/clock/clock",
-        "pages/belle/index",
         "pages/logs/logs"
     ],
     "debug": false,

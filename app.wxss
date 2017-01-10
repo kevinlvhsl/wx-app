@@ -2,6 +2,7 @@
 html, body, view, text, input, textarea, scroll-view {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    font-family: 'Microsoft YaHei', Arial
 }
 .container {
     height: 100%;

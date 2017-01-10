@@ -16,9 +16,14 @@
     z-index: 10;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.97);
     -webkit-transition: all 1s;
     transition: all 1s;
+}
+.swipers {
+    height: 100%;
+    width: 100%;
+    position: relative;
 }
 .large-wrap .large-image {
     position: absolute;
@@ -27,9 +32,20 @@
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+.large-wrap .large-image.vertical-img {
+    height: 100%;
+}
 .large-wrap .close-btn {
     position: absolute;
     z-index: 11;
     top: 40rpx;
     right: 40rpx;
+}
+.posit {
+    position: absolute;
+    top: 20rpx;
+    left: 20rpx;
+    font-size: 13px;
+    color: #FD506C;
+    z-index: 1;
 }
