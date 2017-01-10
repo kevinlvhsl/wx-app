@@ -47,6 +47,7 @@ Page({
         })
     },
     showLargeImage (e) {
+        if (loading) return
         let index = e.currentTarget.dataset.index
         let col = e.currentTarget.dataset.col
         // 标记当前点击的是哪一列 和第几张
@@ -118,9 +119,9 @@ Page({
             imageObj.oW = oImgW
             imageObj.oH = oImgH
             // 是否是竖图
-            if (imageObj.oH > imageObj.oW) {
-                imageObj.vertical = true
-            }
+            // if (imageObj.oH > imageObj.oW) {
+            //     imageObj.vertical = true
+            // }
         }
 
         let loadingCount = this.data.loadingCount - 1;
@@ -172,7 +173,7 @@ Page({
         wx.showToast({
         title: '拼命加载中...',
         icon: 'loading',
-        duration: 4000
+        duration: 10000
         })
         wx.request({
             url:'https://api.getweapp.com/vendor/tngou/tnfs/api/list?page='+this.data.page,

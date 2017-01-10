@@ -1,9 +1,41 @@
-@import "../../templates/searchBar.wxss";
+/*@import "../../templates/searchBar.wxss";*/
 @import "../../templates/movieList.wxss";
 
-.had-srarch {
-    padding-top: 100rpx;
+.search-section {
+    height: 150rpx;
+    background-color: #00be8f;
+    text-align: center;
+    padding-top: 10rpx;
 }
+.search-section .search-box {
+    height: 70rpx;
+    width: 80%;
+    margin: 0 auto;
+    line-height: 70rpx;
+    border-radius: 35rpx;
+    background-color: #fff;
+    font-size: 12px;
+    text-align: center;
+    color: #b9b7b7;
+}
+.search-box icon {
+    display: inline;
+    margin-top: 2rpx;
+    margin-right: 10rpx;
+}
+.search-section .search-choose {
+    height: 60rpx;
+    padding-top: 10rpx;
+    line-height: 60rpx;
+}
+.search-section .search-choose text {
+    font-size: 12px;
+    margin-right: 20rpx;
+    color: rgba(255, 255, 255, .85);
+}
+/*.had-srarch {
+    padding-top: 100rpx;
+}*/
 .ms-wrap {
     display: flex;
     flex-wrap: wrap;
@@ -13,6 +45,7 @@
     text-align: center;
     height: 80rpx;
     line-height: 80rpx;
+    font-size: 13px;
     color: #a4a9ae;
 }
 

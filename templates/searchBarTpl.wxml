@@ -1,7 +1,28 @@
 <template name="searchBar">
     <view class="section-search">
-        <input class="mv-search" bindinput="bindKeyInput"
-            placeholder="电影名称或导演名" maxlength="20" value="{{keyword}}" focus="{{focus}}"  />
-        <icon type="search" size="26" bindtap="searchMovie"/>
+        <view class="search-box">
+            <input class="mv-search" bindinput="bindKeyInput"
+                placeholder="电影名称或导演名" maxlength="20" value="{{keyword}}" focus="true" />
+            <view class="icon-box">
+                <icon type="search" size="20" color="lightblue" bindtap="searchMovie"/>
+            </view>
+        </view>
+        <view class="recommend">
+            <!-- 推荐 -->
+
+        </view>
+        <view class="history-box" wx:if="{{historys.length}}">
+            <view class="his-title">
+                <view class="title-text">历史搜索</view>
+                <veiw class="title-clear" bindtap="clearHistory">
+                    <icon type="clear" size="16" color="#565454" style="height:16px"></icon>
+                </veiw>
+            </view>
+            <!-- 搜索历史 -->
+            <view class="item-box">
+                <view class="item-his {{index === 0 ? 'first': ''}}" wx:for="{{historys}}" wx:item-index="{{index}}" wx:for-key="{{index}}"
+                    data-keyword="{{item.text}}" bindtap="searchRecommend">{{item.text}}</view>
+            </view>
+        </view>
     </view>
 </template>

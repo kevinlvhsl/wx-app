@@ -1,14 +1,14 @@
 {
     "pages": [
+        "pages/movie/movie",
+        "pages/movie/subject",
+        "pages/movie/search",
+        "pages/movie/celebrity",
         "pages/belle/index",
         "pages/index/index",
         "pages/chat/index",
         "pages/chat/message",
         "pages/test/test",
-        "pages/movie/movie",
-        "pages/movie/subject",
-        "pages/movie/search",
-        "pages/movie/celebrity",
         "pages/clock/clock",
         "pages/logs/logs"
     ],

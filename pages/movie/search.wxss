@@ -1,22 +1,21 @@
 @import "../../templates/searchBar.wxss";
-.had-srarch {
-    padding-top: 100rpx;
-}
+
 .search-tip {
     height: 80rpx;
     line-height:80rpx;
     color: #a4a9ae;
 }
 .result-tip {
-    height: 80rpx;
+    height: 70rpx;
+    font-size: 13px;
     color: #959698;
     text-align: center
 }
 .no-more {
     text-align: center;
-    font-size: 14px;
+    font-size: 13px;
     color: #ccc;
-    line-height: 80rpx;
+    line-height: 70rpx;
 }
 
 .ms-wrap {

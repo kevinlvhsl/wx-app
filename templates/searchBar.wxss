@@ -1,20 +1,64 @@
 .section-search {
-    height: 100rpx;
-    position: fixed;
+    min-height: 90rpx;
+    width: 100%;
+    background-color: #00be8f;
+}
+.section-search .search-box {
+    height: 80rpx;
+    display: flex;
     width: 100%;
     top: 0;
-    background-color:rgba(255, 255, 255, .7);
-    border: 1px solid #ddd;
+    background-color: #00be8f;
 }
 .section-search .mv-search {
-    height: 100rpx;
-    line-height: 100rpx;
-    padding: 6rpx 0 6rpx 20rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    padding: 0 20rpx;
+    width: 80%;
+    background-color: #fff;
+    font-size: 12px;
+    border-radius: 30rpx;
+    margin: 10rpx auto;
+    color: #b9b7b7;
+}
+.section-search .icon-box {
+    width: 80rpx;
+    height: 80rpx;
+    text-align: center;
+    padding-top: 20rpx;
+}
+
+.history-box .his-title {
+    display: flex;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 13px;
+    background-color: #ccc;
+    align-items: center;
+}
+.history-box .his-title .title-text {
     width: 85%;
 }
-.section-search icon {
-    position: absolute;
-    top: 25rpx;
-    right: 25rpx;
-    z-index: 1
+.history-box .his-title .title-clear {
+    width: 15%;
+    text-align: center;
+}
+.history-box .item-box {
+    padding: 10rpx 20rpx;
+    background-color: #fff;
+
+}
+.item-box .item-his {
+    display: inline-block;
+    line-height: 40rpx;
+    font-size: 13px;
+    padding: 6rpx 10rpx;
+    white-space: nowrap;
+    margin-right: 20rpx;
+    border-radius: 10rpx;
+    border: 1px solid #ccc;
+}
+.item-box .item-his.first {
+    border-color: #00be8f;
+    color: #00be8f;
 }
