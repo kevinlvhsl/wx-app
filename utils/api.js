@@ -3,8 +3,7 @@ export default {
     getToken (cb) {
         let now = Date.now() / 1000
         var tokenInfo = wx.getStorageSync('ACCESS_TOKEN_INFO') || {}
-        debugger
-        // 如果已有token并且未失效
+        // 如果已有token并且未失效, 失效时间是7200秒
         if (tokenInfo.access_token && tokenInfo.expires_in > now) {
             cb && cb(tokenInfo.access_token)
         } else {
@@ -14,6 +13,7 @@ export default {
                 url: `https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${APPID}&secret=${APPSECRET}`,
                 success: (res) => {
                     console.log('获取token：：：', res)
+                    res.expires_in += now
                     wx.setStorageSync('ACCESS_TOKEN_INFO', res)
                     cb && cb(res.access_token)
                 }
