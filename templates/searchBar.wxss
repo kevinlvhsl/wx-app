@@ -2,30 +2,32 @@
     min-height: 90rpx;
     width: 100%;
     background-color: #00be8f;
+    font-size: 13px;
 }
 .section-search .search-box {
     height: 80rpx;
     display: flex;
+    align-items: center;
     width: 100%;
     top: 0;
     background-color: #00be8f;
+    font-size: 12px;
 }
 .section-search .mv-search {
     height: 60rpx;
-    line-height: 60rpx;
-    padding: 0 20rpx;
-    width: 80%;
+    width: 86%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     background-color: #fff;
-    font-size: 12px;
     border-radius: 30rpx;
     margin: 10rpx auto;
     color: #b9b7b7;
 }
 .section-search .icon-box {
     width: 80rpx;
-    height: 80rpx;
+    height: 44rpx;
     text-align: center;
-    padding-top: 20rpx;
 }
 
 .history-box .his-title {
@@ -35,13 +37,17 @@
     font-size: 13px;
     background-color: #ccc;
     align-items: center;
+    padding: 0 10px;
+    color: #666;
 }
 .history-box .his-title .title-text {
     width: 85%;
 }
 .history-box .his-title .title-clear {
     width: 15%;
+    font-size: 12px;
     text-align: center;
+    text-decoration: underline;
 }
 .history-box .item-box {
     padding: 10rpx 20rpx;
@@ -50,15 +56,16 @@
 }
 .item-box .item-his {
     display: inline-block;
-    line-height: 40rpx;
+    line-height: 50rpx;
     font-size: 13px;
-    padding: 6rpx 10rpx;
+    padding: 0 12rpx;
     white-space: nowrap;
-    margin-right: 20rpx;
+    margin: 8rpx 20rpx;
     border-radius: 10rpx;
+    color: #666;
     border: 1px solid #ccc;
 }
 .item-box .item-his.first {
-    border-color: #00be8f;
-    color: #00be8f;
+    border-color: #9be6d4;
+    color: #9be6d4;
 }

@@ -4,9 +4,11 @@
     height: 80rpx;
     line-height:80rpx;
     color: #a4a9ae;
+    font-size: 13px;
 }
 .result-tip {
-    height: 70rpx;
+    height: 80rpx;
+    line-height: 80rpx;
     font-size: 13px;
     color: #959698;
     text-align: center
@@ -15,14 +17,13 @@
     text-align: center;
     font-size: 13px;
     color: #ccc;
-    line-height: 70rpx;
+    line-height: 80rpx;
 }
 
 .ms-wrap {
     display: flex;
     flex-wrap: wrap;
     padding: 20rpx 0;
-    border-radius: 20rpx;
     background-color: #fff;
 }
 .mov {

@@ -10,14 +10,10 @@ Page({
         searching: true,
         keyword: '',
         focus: false,
-        isNewLoad: true,
+        isNewLoad: true,    // 是否是新的搜索（除了加载更多）
         total: 0,
-        historys: [
-            {index: 0, text: '成龙'},
-            {index: 0, text: '刘德华'},
-            {index: 0, text: '香港电影'},
-            {index: 0, text: '美国大片'}
-        ]
+        searchTitle: '',    // 搜索的标题
+        historys: ['成龙', '刘德华', '香港电影', '美国大片']
     },
     onLoad (option) {
         wx.setNavigationBarTitle({
@@ -38,12 +34,17 @@ Page({
             historys: hs
         })
     },
-    bindKeyInput: function(e) {
+    bindKeyInput (e) {
         console.log('输入了', e.detail.value)
         this.setData({
             isNewLoad: true,
             keyword: e.detail.value,
             searching: true
+        })
+    },
+    clearKeyword () {
+        this.setData({
+            keyword: ''
         })
     },
     goMovieDetail (event) {
@@ -73,7 +74,17 @@ Page({
         })
         this.searchMovie()
     },
+    // 搜索历史 利用set过滤重复
+    setHistroyCache (word) {
+        this.data.historys.unshift(word)
+        let set = new Set(this.data.historys)
+        let hs = Array.from(set)
+        this.setData({ historys: hs })
+
+        wx.setStorageSync('SEARCH_HISTORYS', hs)
+    },
     searchMovie () {
+        debugger
         let keyword = this.data.keyword.trim()
         if (keyword.length === 0) {
             wx.showToast({
@@ -100,21 +111,14 @@ Page({
                 movies: temp,
                 isNewLoad: false,
                 searching: false,
-                total: data.total
+                total: data.total,
+                searchTitle: data.title
             })
             wx.hideNavigationBarLoading()
             wx.hideToast()
-            // 如果搜索历史中没有， 则加入历史中
-            let hs = this.data.historys
-            if (hs.every((item, index) => {
-                return item.text !== keyword
-            })) {
-                hs.unshift({text: keyword})
-                this.setData({
-                    historys: hs
-                })
-                wx.setStorageSync('SEARCH_HISTORYS', hs)
-            }
+
+            this.setHistroyCache(keyword)
+
         }, (res) => {
             console.error('err:', res)
             wx.hideNavigationBarLoading()

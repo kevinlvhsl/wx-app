@@ -81,7 +81,13 @@ Page({
         }
     },
     goSearch: function(e) {
-        app.go('./search', {key: ''})
+        this.setData({
+            clicked: true
+        })
+        setTimeout(()=>{
+            app.go('./search', {key: ''})
+        }, 300)
+
     },
     searchMovie (e) {
         // 跳转到搜索页面
@@ -91,5 +97,10 @@ Page({
     goMovieDetail (e) {
         const id = e.currentTarget.dataset.id
         app.go('./subject', {id})
+    },
+    onShow () {
+        this.setData({
+            clicked: false
+        })
     }
 })

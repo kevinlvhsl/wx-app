@@ -1,6 +1,6 @@
 <view class="page-bg had-srarch">
     <view class="search-section">
-        <view class="search-box" bindtap="goSearch" maxlength="20" >
+        <view class="search-box {{clicked ? 'linght' : ''}}" bindtap="goSearch" maxlength="20" >
             <icon type="search" size="12"/>
             <text>输入电影、演员、导演名称搜索</text>
         </view>

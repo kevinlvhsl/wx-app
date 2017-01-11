@@ -18,6 +18,9 @@
     text-align: center;
     color: #b9b7b7;
 }
+.search-section .search-box.linght {
+    background-color: #d8f5ee;
+}
 .search-box icon {
     display: inline;
     margin-top: 2rpx;
@@ -33,9 +36,7 @@
     margin-right: 20rpx;
     color: rgba(255, 255, 255, .85);
 }
-/*.had-srarch {
-    padding-top: 100rpx;
-}*/
+
 .ms-wrap {
     display: flex;
     flex-wrap: wrap;
