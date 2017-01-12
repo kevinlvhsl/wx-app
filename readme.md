@@ -3,7 +3,7 @@
 + index  // 首页
 + logs  // 日志
 + clock // 一个canvas时钟
-+ belle // 美女瀑布流
++ belle // 美女瀑布流 点击查看大图和切换下一张
 + chat  // 聊天室
     + message 房间
 + movie // 电影列表首页
