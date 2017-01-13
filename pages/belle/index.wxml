@@ -29,10 +29,11 @@
         data-col="{{col}}"
         data-index="{{index}}"
         bindtap="showLargeImage"
+
     ></image>
 </template>
 
-<scroll-view scroll-y="true" style="height:{{scrollH}}px" bindscrolltolower="loadImages">
+<scroll-view scroll-y="true" style="height:{{scrollH}}px" bindscroll="scroll" bindscrolltolower="loadImages">
     <view style="width:100%">
         <view class="img-item">
             <view class="img-col" wx:for="{{col1}}" wx:for-item="img" wx:key="{{img.id}}" animation="{{imgAnimations[img.id]}}">

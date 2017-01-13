@@ -27,7 +27,9 @@ Page({
         currentCol: 1,              // 当前点击的列是第几列
         currentIndex: 0,           // 当前大图是该列第几个
     },
-
+    scroll (e) {
+        console.log('滚动事件:', e)
+    },
     onLoad: function () {
         wx.getSystemInfo({
             success: (res) => {

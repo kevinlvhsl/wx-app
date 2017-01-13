@@ -21,3 +21,6 @@
 > https://api.getweapp.com  getweapp 提供的api
 > wss://socket.getweapp.com  getweapp 提供的socket api
 > https://www.1217.com      1217提供的图片资源
+
+### 百度音乐
+> https://api.getweapp.com/thirdparty/baidu/ting
