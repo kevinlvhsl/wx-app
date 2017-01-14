@@ -1,0 +1,7 @@
+<view>
+    <view class="container">
+        <scroll-view>
+            <view wx:for="{{musics}}"></view>
+        </scroll-view>
+    </view>
+</view>
