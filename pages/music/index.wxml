@@ -1,7 +1,26 @@
 <view>
-    <view class="container">
-        <scroll-view>
-            <view wx:for="{{musics}}"></view>
+    <view id="topNav" style="height: 50px;">
+        <view class="navbar rank {{currBar === '0' ? 'active' : ''}}" bindtap="changeTab" data-index="0">排行榜</view>
+        <view class="navbar search {{currBar === '1' ? 'active' : ''}}" bindtap="changeTab" data-index="1">搜索</view>
+        <view class="navbar playing {{currBar === '2' ? 'active' : ''}}" bindtap="goPlaying" >正在播放</view>
+    </view>
+    <view wx:if="{{currBar === '0' }}">
+        <scroll-view scroll-y="true" style="height={{winHeight - 105}}px;overflow-y:scroll;background-color: #fff;margin-top: 5px;">
+            <view class="music-item" wx:for="{{musics}}" wx:key="{{item.song_id}}"
+                bindtap="goPlaying" data-id="{{item.song_id}}">
+                <view class="album-title">{{item.album_title}}</view>
+                <view class="author">{{item.author}}</view>
+            </view>
+        </scroll-view>
+    </view>
+    <view wx:if="{{currBar === '1' }}">
+        <input type="search" placeholder="输入歌曲关键字"/>
+        <scroll-view  scroll-y="true" style="height={{winHeight - 205}}px;overflow-y:scroll;background-color: #fff;margin-top: 5px;">
+            <view class="music-item" wx:for="{{musics}}" wx:key="{{item.song_id}}"
+                bindtap="goPlaying" data-id="{{item.song_id}}">
+                <view class="album-title">{{item.album_title}}</view>
+                <view class="author">{{item.author}}</view>
+            </view>
         </scroll-view>
     </view>
 </view>

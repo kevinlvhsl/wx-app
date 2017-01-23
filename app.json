@@ -1,5 +1,7 @@
 {
     "pages": [
+        "pages/music/index",
+        "pages/music/playing",
         "pages/movie/movie",
         "pages/movie/subject",
         "pages/movie/search",
@@ -44,8 +46,8 @@
         }, {
             "iconPath": "media/time.png",
             "selectedIconPath": "media/time_2.png",
-            "pagePath": "pages/clock/clock",
-            "text": "时间"
+            "pagePath": "pages/music/index",
+            "text": "音乐"
         }]
     }
 }

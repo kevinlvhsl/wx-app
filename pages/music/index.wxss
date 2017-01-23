@@ -1,0 +1,34 @@
+#topNav {
+    display: flex;
+    align-items: flex-end;
+    background-color: #fff;
+}
+#topNav .navbar {
+    width: 33%;
+    text-align: center;
+    height: 80%;
+}
+#topNav .navbar.active {
+    border-bottom: 2px solid #00be8f;
+}
+
+
+.music-item {
+    height: 110rpx;
+    font-size: 16px;
+    padding-left: 110rpx;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAA+CAMAAACsn+1dAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABUUExURUxpcSUlNCUkMyYlNSYlNSYlNSUkMiMiMyYlMyYlNSUlNSYlNSUkNCUkNCUlNSYkNCUkNS8vNiYlNSQiMyUkNCUlNSYlNSUkNSYlNSYlNSYkNCcmNvsbACUAAAAbdFJOUwBtL/f85Qo7KO2v2l1GEB1PA98YhKN6x9C7linN1BQAAAIbSURBVHjazZbZjsMgDEXdQBayL5Ol9f//5yhyZDXEDkTzMuetRL3Y5toAKm2/4sHatPCQ3qGHayCaaUORNS6OzKFKCmFGPNgyYLoKDyq4J0eihAtvJBK4ocQd+wKRFynMoELZL6Dyc5+GwZ3htsK4Y0BESl4rhbo/Zx9Iw8GFdV+PcttLjLTeV3uIohb2Gva1D0QyX8uQaj7Vz3uFLxKhssHT7LwTrOEBy9kNrRTAatwEKud/WA6IKagrTqt+0laQY/BgzCJCKK8VaJF561X4+cpguM6FIpGHAzuHDc0e8ATItVqLGM6hp2AkATKd3CUfRMy5BJkmAENJCjYRzuHDvgRRgGhHkki9XXg2oS7ABSOcfJC7uCLAJIYkOq+jOJSAAA0BL9Q0KCBNouYPAok9Da2nAu1tCi4k0B6X46IU0QYE3pKZOCAT8kEp23lvdv6uCugN1bGVa/oqCzRIzOIN1bNRK1kgt8pQ4RryQJEEsvRurNFc5hr31wSP3W2m3m9zxFA1U2CoamO9p91rUChOArngpaRCU99fLNP5ZwIPqL2sc/1y1QMo/EPdIJrxMsUm36zhZ1Lmr8WXoRF3c6waYlKe3ZYKEyTXnpoDN204f6s9fIJnMVTcHpKCDb3nG+qPIfBct0oDdXzB6SxI9Ip7w1VqHRLp0gIzLbycxRwT48ZtGx0S8VYrUKGDaEqLHqaEh/Rzigfp3MD/5RdFi12rO7nangAAAABJRU5ErkJggg==");
+    background-position: 15rpx center;
+    background-repeat: no-repeat;
+    background-size: 72rpx 71rpx;
+    border-bottom: 1px solid #1e1e1e
+}
+.music-item .album-title {
+    height: 60rpx;
+    line-height: 60rpx;
+}
+.music-item .author {
+    font-size: 13px;
+    line-height: 1.3;
+    color: #8d8b8b;
+}

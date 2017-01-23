@@ -1,20 +1,51 @@
-//index.js
+import musicApi  from '../../utils/music.js'
+
 //获取应用实例
 var app = getApp()
 Page({
     data: {
-        src: '',
-        interval: '',
-        currentTime: ''
+        winHeight: app.globalData.systemInfo.windowHeight || 603,
+        billList: [],
+        musics: [],
+        artist: [],
+        currBar: '0'
     },
     onLoad () {
-        console.log('music页面')
+        // musicApi.search('你').then((res)=>{
+        //     console.log(res)
+        //     // debugger
+        //     this.setData({
+        //         musics: res.song,
+        //         artist: res.artist
+        //     })
+        // },()=>{
+        //     console.log('music  error')
+        // })
+        musicApi.getOnline().then((res)=>{
+            console.log('新歌榜列表：', res)
+            this.setData({
+                musics: res.song_list
+            })
+        },()=>{
+            console.log('music  error')
+        })
     },
     onUnload: function () {
     },
     onReady () {
-        // this.run()
-        // this.interval = setInterval(this.run, 1000)
+    },
+    onShow () {
+    },
+    changeTab (e) {
+        let index = e.currentTarget.dataset.index
+        if (this.data.currBar === index) return
+        this.setData({
+            currBar: index
+        })
+    },
+    goPlaying (e) {
+        let params = { id: e.currentTarget.dataset.id }
+        app.go('playing', params)
     }
 
 })

@@ -1,0 +1,14 @@
+<view class="container">
+    <view class="music-info">
+        <image src="{{musicInfo.pic_premium}}" />
+        <view class="album-title">{{musicInfo.album_title}}</view>
+        <view class="author">{{musicInfo.author}}</view>
+    </view>
+
+    <view class="control-btn">
+        <image wx:if="{{playing}}" class="pbtn" bindtap="pause" src="../../media/pause.png"></image>
+        <image wx:if="{{!playing}}" class="pbtn"  bindtap="play" src="../../media/play.png"></image>
+    </view>
+
+    <audio id="audio" style="height:1px;width:1px;" src="{{bitrateInfo.file_link}}" preload></audio>
+</view>

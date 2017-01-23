@@ -1,4 +1,5 @@
-var baseUrl = "http://tingapi.ting.baidu.com/v1/restserver/ting"
+// var baseUrl = "http://tingapi.ting.baidu.com/v1/restserver/ting"
+var baseUrl = "https://api.getweapp.com/thirdparty/baidu/ting"
 
 var apiMethod = {
     search: 'baidu.ting.search.catalogSug',
@@ -35,7 +36,7 @@ var search = (keyword) => request({
 
 
 // type = 1-新歌榜,2-热歌榜,11-摇滚榜,12-爵士,16-流行,21-欧美金曲榜,22-经典老歌榜,23-情歌对唱榜,24-影视金曲榜,25-网络歌曲榜
-var getOnline = (type, paged) => {
+var getOnline = (type=1, paged=1) => {
     var limit = 12;
     return request({
         method: apiMethod['list'],

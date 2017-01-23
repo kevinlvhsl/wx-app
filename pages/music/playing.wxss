@@ -1,0 +1,25 @@
+
+
+.music-info .album-title {
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 16px;
+    text-align: center
+}
+.music-info .author {
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #8d8b8b;
+}
+
+.control-btn {
+    height: 160rpx;
+    width: 160rpx;
+    margin: 40rpx auto;
+
+}
+.control-btn .pbtn {
+    height: 160rpx;
+    width: 160rpx;
+}
