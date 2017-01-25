@@ -1,4 +1,10 @@
-
+.music-info {
+    width: 100%;
+}
+.music-info .poster {
+    width: 100%;
+    height: 320px;
+}
 
 .music-info .album-title {
     height: 60rpx;

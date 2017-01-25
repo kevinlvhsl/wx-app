@@ -1,6 +1,6 @@
 <view class="container">
-    <view class="music-info">
-        <image src="{{musicInfo.pic_premium}}" />
+    <view class="music-info" >
+        <image class="poster" src="{{musicInfo.pic_premium}}"/>
         <view class="album-title">{{musicInfo.album_title}}</view>
         <view class="author">{{musicInfo.author}}</view>
     </view>
