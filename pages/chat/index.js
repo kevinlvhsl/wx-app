@@ -47,8 +47,6 @@ Page({
     },
     goPage (e) {
         let ds = e.currentTarget.dataset
-        // let ls = this.data.list
-        // ls.[ds.index] = ls.[ds.index]
         app.go('./message', {
             name: ds.name,
             id: ds.id

@@ -6,6 +6,7 @@ class Socket {
     constructor (host) {
         this.host = host
         this.connected = false
+        this.connCount = 0
         wx.connectSocket({
             url: this.host
         })
@@ -37,9 +38,12 @@ class Socket {
         wx.onSocketClose((res) => {
             console.log('WebSocket 已关闭！')
             this.connected = false
-            // wx.connectSocket({
-            //     url: this.host
-            // })
+            this.connCount++
+            if (this.connCount < 5 ) {
+                wx.connectSocket({
+                    url: this.host
+                })
+            }
         })
 
     }
