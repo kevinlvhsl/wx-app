@@ -27,12 +27,12 @@
 百度音乐全接口 会利用使用接口找歌简单又快捷
 : 转自 [http://67zixue.com/home/article/detail/id/22.html](http://67zixue.com/home/article/detail/id/22.html)
 
-`http://tingapi.ting.baidu.com/v1/restserver/ting`
+> `http://tingapi.ting.baidu.com/v1/restserver/ting`
 
 > 获取方式：GET
  参数：format=json或xml&calback=&from=webapp_music&method=以下不同的参数获得不同的数据
 
-PS：format根据开发需要可选择json或xmml，其他参数对应填入，calback是等于空的。
+-- PS：format根据开发需要可选择json或xmml，其他参数对应填入，calback是等于空的。
 
 + 一、获取列表
 
@@ -54,8 +54,8 @@ offset = 0 //获取偏移
 + 四、播放
 
 > 例：method=baidu.ting.song.play&songid=877578
- 例：method=baidu.ting.song.playAAC&songid=877578
- 参数：songid = 877578 //歌曲id
+  例：method=baidu.ting.song.playAAC&songid=877578
+  参数：songid = 877578 //歌曲id
 
 + 五、LRC歌词
 
