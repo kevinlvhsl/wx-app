@@ -13,7 +13,8 @@
 + chat  // 聊天室
     + index // 聊天室列表页
     + message 房间
-+ movie // 这里采用豆瓣的api
++ movie //这里采用豆瓣的api
+
     + index // 电影列表首页
     + subject // 电影详情
     + search  // 电影搜索
