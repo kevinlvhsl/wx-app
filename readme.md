@@ -3,19 +3,26 @@
 + 音乐模块(百度音乐)
 + 聊天室(socket)
 + 图片墙瀑布流
++ canvas时钟
 
-> 这里准备采用豆瓣的api
+> 对应页面
 + index  // 首页
 + logs  // 日志
 + clock // 一个canvas时钟
 + belle // 美女瀑布流 点击查看大图和切换下一张
 + chat  // 聊天室
+    + index // 聊天室列表页
     + message 房间
-+ movie // 电影列表首页
-    + subject //电影详情
-    + search  //电影搜索
-    + celebrity  //获取影人信息
-
++ movie // 这里采用豆瓣的api
+    + index // 电影列表首页
+    + subject // 电影详情
+    + search  // 电影搜索
+    + celebrity  // 获取影人信息
++ music 
+    + index // 音乐首页
+    + playing // 播放音乐到背景音乐
+    
+### API 开源介绍
 > https://api.douban.com
     > /v2/movie/in_theaters  正在上映的电影
     > /v2/movie/coming_soon  即将上映的电影
@@ -90,3 +97,5 @@ offset = 0 //获取偏移
 > 例：method=baidu.ting.artist.getSongList&tinguid=877578&limits=6&use_cluster=1&order=2
  参数： tinguid = 877578//歌手ting id
  limits = 6//返回条目数量
+
+--- 在此感谢[getWeApp](https://www.getweapp.com/)提供整合接口资源
