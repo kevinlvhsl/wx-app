@@ -11,14 +11,13 @@
 + clock // 一个canvas时钟
 + belle // 美女瀑布流 点击查看大图和切换下一张
 + chat  // 聊天室
-    + index // 聊天室列表页
+    + index //聊天室列表页
     + message 房间
 + movie //这里采用豆瓣的api
-
-    + index // 电影列表首页
-    + subject // 电影详情
-    + search  // 电影搜索
-    + celebrity  // 获取影人信息
+    + index //电影列表首页
+    + subject //电影详情
+    + search //电影搜索
+    + celebrity //获取影人信息
 + music 
     + index // 音乐首页
     + playing // 播放音乐到背景音乐
